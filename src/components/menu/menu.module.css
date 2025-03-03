@@ -1,0 +1,82 @@
+:root {
+  --size-menu-1: 160px;
+}
+
+.menuGrid {
+  border-right: var(--border-1);
+  display: grid;
+  grid-template-rows: var(--mainLayout-size-40px) auto var(--size-menu-1);
+  grid-template-areas:
+    'title'
+    'buttons'
+    'footer';
+  width: 100%;
+  height: 100%;
+
+  & > *:not(:last-child) {
+    border-bottom: var(--border-1);
+  }
+}
+.header {
+  grid-area: title;
+  background: var(--red);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: start;
+  overflow: hidden;
+
+  > span {
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+    height: 45px;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  > button {
+    width: var(--mainLayout-size-40px);
+    border-left: var(--border-1);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.buttons {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.button {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+}
+
+.reminders {
+  grid-area: footer;
+  background: var(--orange);
+}
+
+/* Labtop */
+@media (min-width: 1024px) {
+  .menuGrid {
+    grid-template-rows: 60px auto var(--size-menu-1);
+  }
+
+  .header {
+    > span {
+      height: 67px;
+      font-size: 25px;
+    }
+    > button {
+      display: none;
+    }
+  }
+}

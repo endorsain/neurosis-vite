@@ -1,0 +1,53 @@
+:root {
+  /* RARI */
+  --color-CACA: #a4c2b5;
+  --color-caca: #728f65;
+  /* RARI */
+
+  /* Colors */
+  --black: #000000;
+  --white: #ffffff;
+  --orange: #ff6400;
+
+  --brown: #b19670;
+  --brown-1: #be9760;
+  --brown-2: #a5814e;
+  --brown-3: #695333;
+  --brown-4: #4d3f2c;
+
+  --red: #fd0202;
+  --blue: #2200ff;
+  --colorError: red;
+  --colorSuccess: lime;
+
+  /* Borders */
+  --border-1: 1px solid var(--black);
+
+  /* Borders radius */
+  --border-radius-8: 8px;
+  --border-radius-15: 15px;
+
+  /* Seconds */
+  --seconds-01: 0.1s;
+  --seconds-02: 0.2s;
+  --seconds-03: 0.3s;
+  --seconds-06: 0.6s;
+
+  /* Icon Size */
+  --size-icon-27: 27px;
+
+  /* Font Size */
+  --font-size-13: 13px;
+  --font-size-16: 16px;
+
+  /* Animation */
+  --fadeIn: fadeIn var(--seconds-02) ease forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

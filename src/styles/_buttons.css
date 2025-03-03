@@ -1,0 +1,59 @@
+@keyframes loading_animation_button {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.button_1 {
+  background: var(--black);
+  color: var(--white);
+  overflow: hidden;
+
+  &:hover {
+    background: var(--white);
+    color: var(--black);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+  &.loading {
+    background: radial-gradient(circle, #000000 25%, #ffffff 50%, #000000 75%);
+    background-size: 1000% 150%;
+    animation: loading_animation_button 3s infinite;
+    background-position: center;
+    color: var(--white);
+  }
+}
+
+.button_2 {
+  background: var(--brown-2);
+  color: var(--brown-4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background: var(--brown-3);
+    color: var(--white);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+  &.loading {
+    background: radial-gradient(circle, #725834 25%, #a5814e 50%, #7e5d2f 75%);
+    background-size: 1000% 150%;
+    animation: loading_animation_button 3s infinite;
+    background-position: center;
+    color: var(--white);
+  }
+}

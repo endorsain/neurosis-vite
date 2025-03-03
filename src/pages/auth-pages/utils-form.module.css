@@ -1,0 +1,40 @@
+.input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+.errorMsg {
+  font-size: 11px;
+  color: var(--white);
+}
+
+.button {
+  height: 40px;
+  border-radius: var(--border-radius-8);
+
+  &:hover {
+    border: var(--border-1);
+  }
+}
+
+.requestMsg {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  align-self: center;
+  font-weight: bold;
+
+  &.error {
+    color: var(--colorError);
+  }
+  &.success {
+    color: var(--colorSuccess);
+  }
+}

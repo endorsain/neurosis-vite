@@ -1,0 +1,19 @@
+.auth {
+  background: var(--orange);
+  width: 100%;
+  border-radius: var(--border-radius-15);
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.link {
+  color: var(--blue);
+  text-decoration: none;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}

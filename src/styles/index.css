@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+@import './_variables.css';
+@import './_global.css';
+@import './_buttons.css';
+@import './_inputs.css';
+@import './_scrollbar.css';
+
+/* tablet */
+@media (min-width: 768px) {
+}
+/* labtop */
+@media (min-width: 1024px) {
+}
+/* desktop */
+@media (min-width: 1680px) {
+}

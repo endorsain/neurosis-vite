@@ -1,0 +1,32 @@
+:root {
+  --size-page-grid-1: var(--mainLayout-size-40px);
+  --size-page-grid-2: var(--mainLayout-size-30px);
+}
+.pageLayoutGrid {
+  background: var(--brown);
+  display: grid;
+  grid-template-rows: var(--size-page-grid-1) auto 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  opacity: 0;
+  animation: var(--fadeIn);
+
+  & > *:not(:last-child) {
+    border-bottom: var(--border-1);
+  }
+}
+.addFooter {
+  grid-template-rows: var(--size-page-grid-1) auto var(--size-page-grid-1);
+}
+/* labtop */
+@media (min-width: 1024px) {
+  .pageLayoutGrid {
+    grid-template-rows: var(--size-page-grid-1) auto 0px;
+    border-radius: var(--border-radius-15) var(--border-radius-15) 0px 0px;
+  }
+  .addFooter {
+    grid-template-rows: var(--size-page-grid-1) auto var(--size-page-grid-1);
+  }
+}

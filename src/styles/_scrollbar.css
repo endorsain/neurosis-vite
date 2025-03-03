@@ -1,0 +1,58 @@
+:root {
+  /* Scroll */
+  --scroll-background: var(--black);
+  --scroll-border: var(--border-1);
+  --scroll-hover-background: var(--white);
+}
+
+/* Scrollbar vertical */
+.custom_scrollbar_y {
+  overflow-y: auto;
+}
+.custom_scrollbar_y::-webkit-scrollbar {
+  /* width: 8px; */
+  border-left: var(--scroll-border);
+  overflow: hidden;
+}
+.custom_scrollbar_y::-webkit-scrollbar-thumb {
+  background: var(--scroll-background);
+  border-bottom: var(--scroll-border);
+  border-top: var(--scroll-border);
+  border-left: var(--scroll-border);
+}
+.custom_scrollbar_y::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-hover-background);
+}
+
+/* Scrollbar horizontal */
+.custom_scrollbar_x {
+  overflow: auto;
+}
+.custom_scrollbar_x::-webkit-scrollbar {
+  border-top: var(--scroll-border);
+  overflow: hidden;
+}
+.custom_scrollbar_x::-webkit-scrollbar-thumb {
+  background: var(--scroll-background);
+  border-right: var(--scroll-border);
+  border-top: var(--scroll-border);
+  border-left: var(--scroll-border);
+}
+.custom_scrollbar_x::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-hover-background);
+}
+
+/* TODO: USAR ESTO POR SI NO SE PUEDE O NO QUIERO USAR SCROLL DE X */
+/* ::-webkit-scrollbar {
+  border-left: var(--scroll-border);
+  overflow: hidden;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-background);
+  border-bottom: var(--scroll-border);
+  border-top: var(--scroll-border);
+  border-left: var(--scroll-border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-hover-background);
+} */

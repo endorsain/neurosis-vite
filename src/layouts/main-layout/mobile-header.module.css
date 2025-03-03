@@ -1,0 +1,37 @@
+.mobileHeaderGrid {
+  display: grid;
+  grid-template-columns: var(--mainLayout-size-40px) auto var(
+      --mainLayout-size-40px
+    );
+  width: 100%;
+  height: 100%;
+  border-bottom: var(--border-1);
+  overflow: hidden;
+
+  & > *:not(:last-child) {
+    border-right: var(--border-1);
+  }
+}
+
+.button {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebarIcon {
+  rotate: 180deg;
+}
+.title {
+  background: var(--red);
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+
+  > span {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}

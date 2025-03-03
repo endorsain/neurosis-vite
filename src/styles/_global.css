@@ -1,0 +1,15 @@
+html,
+body {
+  /* background: var(--black); */
+  /* color: var(--black); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* SVG ICON */
+.svg_icon {
+  width: var(--size-icon-27);
+}
