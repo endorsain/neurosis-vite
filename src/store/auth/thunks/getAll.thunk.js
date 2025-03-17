@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { apiClient } from '../../common/apiClient';
 
-const authThunk = createAsyncThunk(
-  'auth/authThunk',
+const getAllThunk = createAsyncThunk(
+  'auth/getAllThunk',
   async (_, { rejectWithValue }) => {
     try {
       const response = await apiClient.get({
@@ -21,4 +21,4 @@ const authThunk = createAsyncThunk(
   }
 );
 
-export default authThunk;
+export default getAllThunk;

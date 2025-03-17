@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import { clearMessage } from '../../store/aut/auth.slice';
 // import { signupThunk } from '../../store/auth-slices/auth.thunk';
+import { signupSchema } from '../../schemes/auth.schema';
 import { clearMessage } from '../../store/auth/auth.slice';
 import { signupThunk } from '../../store/auth/thunks';
-import { signupSchema } from '../../utils/schemes/auth.schema';
 import styles from './auth-form.module.css';
 import { AuthResponse, ButtonForm, InputForm } from './UtilsForm';
 

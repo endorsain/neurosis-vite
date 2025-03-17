@@ -1,15 +1,11 @@
 import { useEffect } from 'react';
-import { Provider, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import authThunk from '../store/auth/thunks/auth.thunk';
-import { store } from '../store/store';
 
 const AUTH_ROUTES = ['/sign-in', '/sign-up'];
 
-export function ReduxProvider({ children }) {
-  return <Provider store={store}>{children}</Provider>;
-}
-
+//TODO: Cambiar el slice para autenticacion. AuthProvider debe tener un slice propio.
 export function AuthProvider({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,9 +19,9 @@ export function AuthProvider({ children }) {
   }, [dispatch]);
 
   useEffect(() => {
-    // console.log('LOADING: ', loading);
-    // console.log('AUTH: ', isAuthenticated);
-    // console.log('ERROR: ', error);
+    console.log('---LOADING: ', loading);
+    console.log('---AUTH: ', isAuthenticated);
+    console.log('---ERROR: ', error);
 
     if (!loading) {
       if (

@@ -19,7 +19,7 @@ export default function MainLayout() {
       <div className={styles.loading} />
       <div className={styles.mobileHeader}>
         <MobileHeader
-          /* setExpand={() => setExpand(prev => ({ ...prev, menu: !prev.menu }))} */
+          // setExpand={() => setExpand(prev => ({ ...prev, menu: !prev.menu }))}
           setExpand={setExpand}
         />
       </div>

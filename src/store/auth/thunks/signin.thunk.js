@@ -4,7 +4,7 @@ import { auth } from '../../../services/firebase-config';
 import { apiClient } from '../../common/apiClient';
 
 const signinThunk = createAsyncThunk(
-  'auth/sign-in',
+  'auth/signinThunk',
   async (userData, { rejectWithValue }) => {
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -22,14 +22,15 @@ const signinThunk = createAsyncThunk(
       const idToken = await user.getIdToken();
       const refreshToken = user.refreshToken;
 
+      console.log(idToken);
+
       const response = await apiClient.post({
-        url: `${import.meta.env.VITE_SERVER_URL}/common-web-user/auth/sign-in`,
+        url: `${import.meta.env.VITE_SERVER_URL}/common-web-user/user-access/sign-in`,
         body: null,
         headers: {
           idToken,
           refreshToken,
         },
-        timestampType: false,
       });
 
       return response;

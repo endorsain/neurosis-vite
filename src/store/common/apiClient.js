@@ -10,9 +10,10 @@ const fetchRequest = async ({
   method,
   body = null,
   headers = {},
-  timestampType = null,
+  params = false,
 }) => {
-  const finalUrl = timestampType ? addTimertampToUrl(url, timestampType) : url;
+  console.log(params);
+  const finalUrl = params ? addParams(url) : url;
 
   const options = {
     method,
@@ -36,16 +37,21 @@ const fetchRequest = async ({
     throw error;
   }
 
+  console.log('result', result.data);
+
   return result;
 };
 
-const addTimertampToUrl = url => {
-  const now = new Date();
+const addParams = url => {
+  console.log('ENTRO URL');
+
+  const now = Date.now();
   const params = new URLSearchParams({
-    'time[currentDate]': now.toISOString(),
-    'time[year]': now.getUTCFullYear(),
-    'time[month]': now.getUTCMonth() + 1,
+    currentDate: now, // se supone que es Unix en milisegundos.
   });
+
+  console.log('params.toString()', params.toString());
+
   return `${url}?${params.toString()}`;
 };
 

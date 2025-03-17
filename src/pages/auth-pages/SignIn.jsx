@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { signinSchema } from '../../utils/schemes/auth.schema';
+import { signinSchema } from '../../schemes/auth.schema';
 import styles from './auth-form.module.css';
 import { AuthResponse, ButtonForm, InputForm } from './UtilsForm';
 // firebase

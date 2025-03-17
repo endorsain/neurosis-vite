@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { authThunk, signinThunk, signupThunk } from './thunks';
 
+import { getAllThunk, logoutThunk, signinThunk, signupThunk } from './thunks';
 import {
-  handleAuthFulfilled,
+  handleGetAllFulfilled,
+  handleLogoutFulfilled,
   handlePending,
   handleRejected,
   handleSigninFulfilled,
@@ -22,7 +23,8 @@ const initialState = {
 const thunkHandlers = {
   [signupThunk.typePrefix]: handleSignupFulfilled,
   [signinThunk.typePrefix]: handleSigninFulfilled,
-  [authThunk.typePrefix]: handleAuthFulfilled,
+  [getAllThunk.typePrefix]: handleGetAllFulfilled,
+  [logoutThunk.typePrefix]: handleLogoutFulfilled,
 };
 
 const authSlice = createSlice({

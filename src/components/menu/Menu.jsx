@@ -1,34 +1,28 @@
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { MenuIcon } from '../../icons';
-import { requestHelper } from '../../utils/request';
+import logoutThunk from '../../store/auth/thunks/logout.thunk';
 import { menuItems } from './menu-items';
 import styles from './menu.module.css';
 
 export default function Menu() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit = async (event, value) => {
     event.stopPropagation();
 
-    /* const button = event.currentTarget;
-    button.classList.add("loading-button_1"); // Añadir la clase de carga
-    button.disabled = true; */
+    // const button = event.currentTarget;
+    // button.classList.add('loading'); // Añadir la clase de carga
+    // button.disabled = true;
 
     if (value === '/logout') {
-      const response = await requestHelper(
-        `${import.meta.env.VITE_SERVER_URL}/common-web-user/sign-out`,
-        'DELETE',
-        {},
-        {}
-      );
-
-      if (response.path === '/so/success/') {
-        //return router.push('/sign-in');
-        return navigate('/sign-in');
-      }
+      dispatch(logoutThunk()).then(result => {
+        if (result.meta.requestStatus === 'fulfilled') {
+          return navigate('/sign-in');
+        }
+      });
     } else {
-      console.log('entra a else');
-      //router.push(value);
       return navigate(value);
     }
   };
