@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 // import { clearMessage } from '../../store/aut/auth.slice';
 // import { signupThunk } from '../../store/auth-slices/auth.thunk';
 import { signupSchema } from '../../schemes/auth.schema';
-import { clearMessage } from '../../store/auth/auth.slice';
-import { signupThunk } from '../../store/auth/thunks';
-import styles from './auth-form.module.css';
+import { signupThunk } from '../../store/user-access/thunks';
+import { clearMessage } from '../../store/user-access/user-access.slice';
+import styles from './access-form.module.css';
 import { AuthResponse, ButtonForm, InputForm } from './UtilsForm';
 
 export default function Signup() {
@@ -22,7 +22,9 @@ export default function Signup() {
   });
 
   const dispatch = useDispatch();
-  const { loading, success_message, error } = useSelector(state => state.auth);
+  const { loading, success_message, error } = useSelector(
+    state => state.user_access
+  );
 
   const onSubmit = values => {
     dispatch(signupThunk(values)).then(result => {

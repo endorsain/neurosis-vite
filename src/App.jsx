@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 // import { AuthProvider } from './context/AuthProvider';
 import { AuthLayout, MainLayout } from './layouts';
-import { Signin, Signup } from './pages/auth-pages';
+import { Signin, Signup } from './pages/access-pages';
 import { CurrentPage, HistoryPage } from './pages/main-pages';
 
 function App() {

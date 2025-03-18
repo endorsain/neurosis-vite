@@ -1,12 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { signinSchema } from '../../schemes/auth.schema';
-import styles from './auth-form.module.css';
+import { signinThunk } from '../../store/user-access/thunks';
+import styles from './access-form.module.css';
 import { AuthResponse, ButtonForm, InputForm } from './UtilsForm';
-// firebase
-import { useDispatch, useSelector } from 'react-redux';
-import { signinThunk } from '../../store/auth/thunks';
 
 export default function Signin() {
   const {
@@ -18,7 +17,8 @@ export default function Signin() {
   });
   //const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, error } = useSelector(state => state.auth);
+  // const { loading, error } = useSelector(state => state.auth);
+  const { loading, error } = useSelector(state => state.user_access);
 
   const onSubmit = value => {
     dispatch(signinThunk(value)).then(result => {
