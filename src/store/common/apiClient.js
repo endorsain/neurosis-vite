@@ -12,7 +12,7 @@ const fetchRequest = async ({
   headers = {},
   params = false,
 }) => {
-  console.log(params);
+  // console.log(params);
   const finalUrl = params ? addParams(url) : url;
 
   const options = {
@@ -43,14 +43,14 @@ const fetchRequest = async ({
 };
 
 const addParams = url => {
-  console.log('ENTRO URL');
+  // console.log('ENTRO URL');
 
   const now = Date.now();
   const params = new URLSearchParams({
     currentDate: now, // se supone que es Unix en milisegundos.
   });
 
-  console.log('params.toString()', params.toString());
+  // console.log('params.toString()', params.toString());
 
   return `${url}?${params.toString()}`;
 };

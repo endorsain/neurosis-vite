@@ -3,11 +3,9 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { clearMessage } from '../../store/aut/auth.slice';
-// import { signupThunk } from '../../store/auth-slices/auth.thunk';
 import { signupSchema } from '../../schemes/auth.schema';
-import { signupThunk } from '../../store/user-access/thunks';
-import { clearMessage } from '../../store/user-access/user-access.slice';
+import { clearMessage } from '../../store/slices/user-access/userAccess.slice';
+import { signupThunk } from '../../store/thunks';
 import styles from './access-form.module.css';
 import { AuthResponse, ButtonForm, InputForm } from './UtilsForm';
 

@@ -1,42 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-import { getAllThunk, logoutThunk, signinThunk, signupThunk } from './thunks';
+import { getDataThunk, logoutThunk } from '../../thunks';
 import {
-  handleGetAllFulfilled,
+  handleGetDataFulfilled,
   handleLogoutFulfilled,
   handlePending,
   handleRejected,
-  handleSigninFulfilled,
-  handleSignupFulfilled,
 } from './utils';
 
 const initialState = {
   isAuthenticated: false,
   loading: false,
-  success_message: null,
-  error: {
-    code: null,
-    message: null,
-  },
+  error: null,
 };
 
 const thunkHandlers = {
-  [signupThunk.typePrefix]: handleSignupFulfilled,
-  [signinThunk.typePrefix]: handleSigninFulfilled,
-  [getAllThunk.typePrefix]: handleGetAllFulfilled,
   [logoutThunk.typePrefix]: handleLogoutFulfilled,
+  [getDataThunk.typePrefix]: handleGetDataFulfilled,
 };
 
-const authSlice = createSlice({
-  name: 'auth',
+const authUserSlice = createSlice({
+  name: 'authUser',
   initialState,
   reducers: {
-    clearMessage: state => {
-      state.success_message = null;
-      state.error = {
-        code: null,
-        message: null,
-      };
+    setAuthenticated: (state, action) => {
+      state.isAuthenticated = action.payload;
+      if (action.payload === true) {
+        state.error = null;
+      }
     },
   },
   extraReducers: builder => {
@@ -52,5 +42,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { clearMessage } = authSlice.actions;
-export default authSlice.reducer;
+export const { setAuthenticated } = authUserSlice.actions;
+export default authUserSlice.reducer;

@@ -1,10 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import authReducer from './auth/auth.slice';
-import userAccessReducer from './user-access/user-access.slice';
+import { authUserReducer, getDataReducer, userAccessReducer } from './slices';
 
 const rootReducer = combineReducers({
-  auth: authReducer,
   user_access: userAccessReducer,
+  auth_user: authUserReducer,
+  get_data: getDataReducer,
 });
 
 export default rootReducer;

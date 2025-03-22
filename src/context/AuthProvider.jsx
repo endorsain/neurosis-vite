@@ -1,40 +1,41 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import authThunk from '../store/auth/thunks/auth.thunk';
+import { getDataThunk } from '../store/thunks';
 
 const AUTH_ROUTES = ['/sign-in', '/sign-up'];
 
-//TODO: Cambiar el slice para autenticacion. AuthProvider debe tener un slice propio.
 export function AuthProvider({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
 
   const dispatch = useDispatch();
-  const { isAuthenticated, loading, error } = useSelector(state => state.auth);
+  const { isAuthenticated, loading, error } = useSelector(
+    state => state.auth_user
+  );
 
   useEffect(() => {
-    console.log('se ejecuto');
-    dispatch(authThunk());
+    console.log('AuthProvider - activador de getDataThunk');
+    dispatch(getDataThunk());
   }, [dispatch]);
 
   useEffect(() => {
-    console.log('---LOADING: ', loading);
-    console.log('---AUTH: ', isAuthenticated);
-    console.log('---ERROR: ', error);
+    console.log('AuthProvider - isAuthenticated: ', isAuthenticated);
+    console.log('AuthProvider - loading: ', loading);
+    console.log('AuthProvider - error: ', error);
 
     if (!loading) {
       if (
         isAuthenticated &&
         AUTH_ROUTES.includes(location.pathname) &&
         //TODO: Cambiar la forma en que lee el error
-        error.message === null
+        error === null
       ) {
         navigate('/');
       } else if (
         !isAuthenticated &&
         !AUTH_ROUTES.includes(location.pathname) &&
-        error.message !== null
+        error !== null
       ) {
         navigate('/sign-in');
       }

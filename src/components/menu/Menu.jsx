@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { MenuIcon } from '../../icons';
-import logoutThunk from '../../store/auth/thunks/logout.thunk';
+import { logoutThunk } from '../../store/thunks';
 import { menuItems } from './menu-items';
 import styles from './menu.module.css';
 

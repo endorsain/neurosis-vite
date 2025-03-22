@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signinThunk, signupThunk } from './thunks';
+import { signinThunk, signupThunk } from '../../thunks';
 import {
   handlePending,
   handleRejected,
@@ -22,7 +22,7 @@ const thunkHandlers = {
 };
 
 const userAccessSlice = createSlice({
-  name: 'user-access',
+  name: 'userAccess',
   initialState,
   reducers: {
     clearMessage: state => {

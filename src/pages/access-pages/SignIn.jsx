@@ -1,9 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signinSchema } from '../../schemes/auth.schema';
-import { signinThunk } from '../../store/user-access/thunks';
+import { signinThunk } from '../../store/thunks';
 import styles from './access-form.module.css';
 import { AuthResponse, ButtonForm, InputForm } from './UtilsForm';
 
@@ -15,7 +15,7 @@ export default function Signin() {
   } = useForm({
     resolver: zodResolver(signinSchema),
   });
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   // const { loading, error } = useSelector(state => state.auth);
   const { loading, error } = useSelector(state => state.user_access);
@@ -24,7 +24,7 @@ export default function Signin() {
     dispatch(signinThunk(value)).then(result => {
       if (result.meta.requestStatus === 'fulfilled') {
         console.log('Entraste!');
-        // return navigate('/');
+        return navigate('/');
       }
     });
   };
