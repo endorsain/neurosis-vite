@@ -36,7 +36,7 @@ const userAccessSlice = createSlice({
   extraReducers: builder => {
     Object.entries(thunkHandlers).forEach(
       ([thunkTypePrefix, fulfilledHandler]) => {
-        console.log('ThunkTypePrefix:', thunkTypePrefix);
+        // console.log('ThunkTypePrefix:', thunkTypePrefix);
         builder
           .addCase(`${thunkTypePrefix}/pending`, handlePending)
           .addCase(`${thunkTypePrefix}/fulfilled`, fulfilledHandler)

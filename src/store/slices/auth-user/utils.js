@@ -9,7 +9,7 @@ export const handleRejected = (state, action) => {
     message: action.payload?.message || 'Unknown error',
   };
 };
-export const handleGetDataFulfilled = state => {
+export const handleGetGeneralDataFulfilled = state => {
   state.loading = false;
   state.isAuthenticated = true;
   state.error = null;
@@ -17,5 +17,10 @@ export const handleGetDataFulfilled = state => {
 export const handleLogoutFulfilled = state => {
   state.loading = false;
   state.isAuthenticated = false;
+  state.error = null;
+};
+export const handleSigninFulfilled = state => {
+  state.loading = false;
+  state.isAuthenticated = true;
   state.error = null;
 };

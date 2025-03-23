@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getDataThunk } from '../../thunks';
 
 const initialState = {
   data: null,
@@ -7,8 +6,8 @@ const initialState = {
   error: null,
 };
 
-const getDataSlice = createSlice({
-  name: 'getData',
+const getGeneralDataSlice = createSlice({
+  name: 'getGeneralData',
   initialState,
   reducers: {},
   extraReducers: builder => {
@@ -30,5 +29,5 @@ const getDataSlice = createSlice({
   },
 });
 
-// export const { clearMessage } = getDataSlice.actions;
-export default getDataSlice.reducer;
+// export const { clearMessage } = getGeneralDataSlice.actions;
+export default getGeneralDataSlice.reducer;

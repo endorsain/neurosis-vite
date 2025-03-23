@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getDataThunk } from '../store/thunks';
 
-const AUTH_ROUTES = ['/sign-in', '/sign-up'];
+// const AUTH_ROUTES = ['/sign-in', '/sign-up'];
 
 export function AuthProvider({ children }) {
   const navigate = useNavigate();
@@ -27,14 +27,14 @@ export function AuthProvider({ children }) {
     if (!loading) {
       if (
         isAuthenticated &&
-        AUTH_ROUTES.includes(location.pathname) &&
+        // AUTH_ROUTES.includes(location.pathname) &&
         //TODO: Cambiar la forma en que lee el error
         error === null
       ) {
         navigate('/');
       } else if (
         !isAuthenticated &&
-        !AUTH_ROUTES.includes(location.pathname) &&
+        // !AUTH_ROUTES.includes(location.pathname) &&
         error !== null
       ) {
         navigate('/sign-in');

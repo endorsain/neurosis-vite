@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { apiClient } from '../../common/apiClient';
 
-const getDataThunk = createAsyncThunk(
-  'getDataThunk',
+const getGeneralDataThunk = createAsyncThunk(
+  'getGeneralDataThunk',
   async (_, { rejectWithValue }) => {
     try {
       const response = await apiClient.get({
@@ -15,10 +15,11 @@ const getDataThunk = createAsyncThunk(
       return response;
     } catch (error) {
       return rejectWithValue({
-        message: error.message || 'Error in getDataThunk',
+        message: error.message || 'Error in getGeneralDataThunk',
+        status: error.status,
       });
     }
   }
 );
 
-export default getDataThunk;
+export default getGeneralDataThunk;
