@@ -17,6 +17,38 @@
     border-bottom: var(--border-1);
   }
 }
+.header {
+  background: yellow;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+.customButtons {
+  background: cyan;
+  display: flex;
+  margin-right: auto;
+
+  & > button {
+    width: 40px;
+    border-right: var(--border-1);
+  }
+}
+.defaultButtons {
+  background: green;
+  display: flex;
+  margin-left: auto;
+
+  & > button {
+    width: 40px;
+    border-left: var(--border-1);
+  }
+}
+.space {
+  background: pink;
+  width: 100%;
+  overflow: hidden;
+}
+
 .addFooter {
   grid-template-rows: var(--size-page-grid-1) auto var(--size-page-grid-1);
 }

@@ -19,12 +19,6 @@
   transition: grid-template-columns var(--seconds-03) ease;
 }
 /* Ocultar elementos por defecto */
-/* .loading,
-.marquee,
-.friends {
-  display: none;
-} */
-.loading,
 .marquee {
   display: none;
 }
@@ -75,9 +69,8 @@
     grid-template-columns: var(--mainLayout-size-160px) auto var(
         --mainLayout-size-40px
       );
-    grid-template-rows: 2px 20px auto;
+    grid-template-rows: 20px auto;
     grid-template-areas:
-      'loading loading loading'
       'marquee marquee marquee'
       'menu children friends';
   }
@@ -92,14 +85,6 @@
         --mainLayout-size-160px
       );
   }
-
-  .loading {
-    grid-area: loading;
-    background: var(--red);
-    /* background: var(--black); */
-    display: flex;
-  }
-
   .marquee {
     grid-area: marquee;
     background: var(--black);

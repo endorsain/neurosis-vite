@@ -57,3 +57,7 @@
     color: var(--white);
   }
 }
+/* TODO: Agrega somra al al hijo de button_2 */
+/* .button_2 > *:first-child {
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+} */

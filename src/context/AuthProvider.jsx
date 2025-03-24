@@ -1,9 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getDataThunk } from '../store/thunks';
-
-// const AUTH_ROUTES = ['/sign-in', '/sign-up'];
+import { getGeneralDataThunk } from '../store/thunks';
 
 export function AuthProvider({ children }) {
   const navigate = useNavigate();
@@ -15,8 +13,8 @@ export function AuthProvider({ children }) {
   );
 
   useEffect(() => {
-    console.log('AuthProvider - activador de getDataThunk');
-    dispatch(getDataThunk());
+    console.log('AuthProvider - activador de getGeneralDataThunk');
+    dispatch(getGeneralDataThunk());
   }, [dispatch]);
 
   useEffect(() => {
@@ -25,18 +23,9 @@ export function AuthProvider({ children }) {
     console.log('AuthProvider - error: ', error);
 
     if (!loading) {
-      if (
-        isAuthenticated &&
-        // AUTH_ROUTES.includes(location.pathname) &&
-        //TODO: Cambiar la forma en que lee el error
-        error === null
-      ) {
+      if (isAuthenticated && error === null) {
         navigate('/');
-      } else if (
-        !isAuthenticated &&
-        // !AUTH_ROUTES.includes(location.pathname) &&
-        error !== null
-      ) {
+      } else if (!isAuthenticated && error !== null) {
         navigate('/sign-in');
       }
     }

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getGeneralDataThunk } from '../../thunks';
 
 const initialState = {
   data: null,
@@ -12,16 +13,16 @@ const getGeneralDataSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(getDataThunk.pending, state => {
+      .addCase(getGeneralDataThunk.pending, state => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getDataThunk.fulfilled, state => {
+      .addCase(getGeneralDataThunk.fulfilled, state => {
         state.loading = false;
         state.data = 'queseyo flaco';
         state.error = null;
       })
-      .addCase(getDataThunk.rejected, state => {
+      .addCase(getGeneralDataThunk.rejected, state => {
         state.loading = false;
         state.data = null;
         state.error = 'mensaje de error flaco';

@@ -5,7 +5,8 @@ import { logoutThunk } from '../../store/thunks';
 import { menuItems } from './menu-items';
 import styles from './menu.module.css';
 
-export default function Menu() {
+export default function Menu(props) {
+  const { setExpand } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,6 +24,7 @@ export default function Menu() {
         }
       });
     } else {
+      setExpand();
       return navigate(value);
     }
   };
@@ -30,10 +32,7 @@ export default function Menu() {
     <div className={styles.menuGrid}>
       <div className={styles.header}>
         <span>NEUROSIS</span>
-        <button
-          /* onClick={() => setExpand()} */
-          className="button_1"
-        >
+        <button onClick={() => setExpand()} className="button_1">
           <MenuIcon className={styles.sidebarIcon} />
         </button>
       </div>

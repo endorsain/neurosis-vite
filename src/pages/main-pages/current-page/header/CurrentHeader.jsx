@@ -1,29 +1,40 @@
 import React from 'react';
-import { GraphicsIcon, StorageIcon, TimerIcon } from '../../../../icons';
+// import { GraphicsIcon, StorageIcon, TimerIcon } from '../../../../icons';
+import { TimerIcon } from '../../../../icons';
 import styles from './current-header.module.css';
 
 export const CurrentHeader = props => {
   const { change, setChange } = props;
 
+  // return (
+  //   <div className={styles.currentHeaderGrid}>
+  //     <ButtonHeader setChange={setChange} select="timer">
+  //       <TimerIcon />
+  //     </ButtonHeader>
+  //     <ButtonHeader setChange={setChange} select="graph">
+  //       <GraphicsIcon />
+  //     </ButtonHeader>
+
+  //     <ChangeHeader change={change}>
+  //       <div>Leisure Content</div>
+  //       <div>Graph Content</div>
+  //       <div>Store Content</div>
+  //     </ChangeHeader>
+
+  //     <ButtonHeader setChange={setChange} select="store">
+  //       <StorageIcon />
+  //     </ButtonHeader>
+  //     <ButtonHeader setChange={setChange} select="timer">
+  //       <TimerIcon />
+  //     </ButtonHeader>
+  //   </div>
+  // );
   return (
-    <div className={styles.currentHeaderGrid}>
+    <>
       <ButtonHeader setChange={setChange} select="timer">
         <TimerIcon />
       </ButtonHeader>
-      <ButtonHeader setChange={setChange} select="graph">
-        <GraphicsIcon />
-      </ButtonHeader>
-
-      <ChangeHeader change={change}>
-        <div>Leisure Content</div>
-        <div>Graph Content</div>
-        <div>Store Content</div>
-      </ChangeHeader>
-
-      <ButtonHeader setChange={setChange} select="store">
-        <StorageIcon />
-      </ButtonHeader>
-    </div>
+    </>
   );
 };
 

@@ -16,7 +16,6 @@ export default function MainLayout() {
         ${expand.menu ? styles.slideMenu : ''} 
         ${expand.friends ? styles.slideFriends : ''}`}
     >
-      <div className={styles.loading} />
       <div className={styles.mobileHeader}>
         <MobileHeader
           // setExpand={() => setExpand(prev => ({ ...prev, menu: !prev.menu }))}
@@ -30,13 +29,17 @@ export default function MainLayout() {
         praesentium cum ex delectus.
       </div>
       <div className={styles.menu}>
-        <Menu />
+        <Menu
+          setExpand={() =>
+            setExpand(prev => ({ menu: !prev.menu, friends: false }))
+          }
+        />
       </div>
       <div className={styles.friends}>
         <Friends
           expand={expand.friends}
           setExpand={() =>
-            setExpand(prev => ({ ...prev, friends: !prev.friends }))
+            setExpand(prev => ({ menu: false, friends: !prev.friends }))
           }
         />
       </div>
