@@ -1,7 +1,8 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { AuthLayout, MainLayout } from './layouts';
+import { HeaderButtonsProvider } from './context/HeaderButtonsProvider';
+import { AuthLayout, MainLayout, PageLayout } from './layouts';
 import { Signin, Signup } from './pages/access-pages';
-import { CurrentPage, HistoryPage } from './pages/main-pages';
+import { CurrentPage } from './pages/main-pages';
 
 function App() {
   return (
@@ -11,12 +12,15 @@ function App() {
         <Route
           element={
             // <AuthProvider>
-            <MainLayout />
+            <MainLayout>
+              <HeaderButtonsProvider>
+                <PageLayout />
+              </HeaderButtonsProvider>
+            </MainLayout>
             // </AuthProvider>
           }
         >
           <Route element={<CurrentPage />} path="/" />
-          <Route element={<HistoryPage />} path="/history" />
         </Route>
         {/* Otros */}
         <Route element={<AuthLayout />}>

@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
 import { Friends, Menu } from '../../components';
 import styles from './main-layout.module.css';
 import MobileHeader from './MobileHeader';
 
-export default function MainLayout() {
+export default function MainLayout({ children }) {
   const [expand, setExpand] = useState({
     menu: false,
     friends: false,
@@ -44,7 +43,8 @@ export default function MainLayout() {
         />
       </div>
       <div className={styles.children}>
-        <Outlet />
+        {/* <Outlet /> */}
+        {children}
       </div>
     </div>
   );

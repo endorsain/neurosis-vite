@@ -1,39 +1,48 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import { useHeaderButtons } from '../../context/HeaderButtonsProvider';
 import { ManageIcon, RefreshIcon, StorageIcon } from '../../icons';
 import styles from './page-layout.module.css';
 
 export default function PageLayout({ children }) {
-  const [header, body, footer] = React.Children.toArray(children);
+  // const [header, body, footer] = React.Children.toArray(children);
+  const { headerButtons } = useHeaderButtons();
 
   return (
-    <div
-      className={`${styles.pageLayoutGrid} ${footer !== undefined ? styles.addFooter : ''}`}
-    >
+    <div className={styles.pageLayoutGrid}>
       <div className={styles.header}>
-        <div className={styles.customButtons}>{header}</div>
+        <div className={styles.customButtons}>{headerButtons}</div>
         <div className={styles.space}>Spage</div>
         <div className={styles.defaultButtons}>
-          <ButtonHeader /* setChange={setChange} select="store" */>
+          <ButtonHeader>
             <StorageIcon />
-          </ButtonHeader>
-          <ButtonHeader>
             <ManageIcon />
-          </ButtonHeader>
-          <ButtonHeader>
             <RefreshIcon />
           </ButtonHeader>
         </div>
       </div>
-      <div className={styles.body}>{body}</div>
-      <div className={styles.footer}>{footer}</div>
+      <div className={styles.body}>
+        <Outlet />
+      </div>
     </div>
   );
 }
 
 const ButtonHeader = ({ setChange, select, children }) => {
+  // return (
+  //   <button className="button_2">
+  //     {children}
+  //   </button>
+  // );
+  const childrenArray = React.Children.toArray(children);
+
   return (
-    <button className="button_2" /* onClick={() => setChange(select)} */>
-      {children}
-    </button>
+    <>
+      {childrenArray.map((child, index) => (
+        <button className="button_2" key={index}>
+          {child}
+        </button>
+      ))}
+    </>
   );
 };
