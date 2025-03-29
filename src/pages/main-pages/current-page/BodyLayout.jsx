@@ -17,61 +17,40 @@ export const BodyLayout = ({ children }) => {
   });
 
   useEffect(() => {
-    if (stackView.length === 0 && childrenArray.length > 0) {
-      if (childrenArray.length === 1) {
-        return setStackView([getComponentName(childrenArray[0])]);
-      } else if (childrenArray.length > 1) {
-        return setStackView([
-          getComponentName(childrenArray[0]),
-          getComponentName(childrenArray[1]),
-        ]);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
     console.log('Se ejecuto', activeView);
-    if (activeView && viewComponents[activeView]) {
+    if (activeView === null) {
+      setStackView(childrenArray);
+    } else if (activeView && viewComponents[activeView]) {
       setStackView(prev => {
-        // if(prev[0] === prev){
-        //   return prev
-        // }
+        const activeComponent = viewComponents[activeView];
 
-        if (prev[1] === activeView) {
-          return [activeView, prev[0]];
-        }
+        const filteredArray = childrenArray.filter(
+          child =>
+            React.isValidElement(child) &&
+            (child.type.name || child.type.displayName) === activeView
+        );
 
-        return prev.length > 0 ? [activeView, prev[0]] : [activeView];
+        return [activeComponent, ...filteredArray];
       });
     }
   }, [activeView]);
 
-  const getComponentName = element => {
-    if (React.isValidElement(element)) {
-      return (
-        element.type.name || element.type.displayName || 'UnknownComponent'
-      );
-    }
-    return 'UnknownComponent';
-  };
-
   const renderStackViews = () => {
-    // return stackView.map((componentName, index) => {
-    //   const component = viewComponents[componentName];
-    //   console.log(component);
+    return stackView.map((component, index) => {
+      if (!React.isValidElement(component)) return null;
 
-    //   return React.cloneElement(component, {
-    //     key: componentName,
-    //   });
-    // });
-    const xd = [viewComponents[stackView[0]], viewComponents[stackView[1]]];
-    console.log(xd);
+      const componentName = component.type.name || component.type.displayName;
+      const zIndex = 100 - index; // Mayor z-index para el primer elemento
 
-    return <>{xd.map((child, index) => child)}</>;
+      return React.cloneElement(component, {
+        key: componentName || `view-${index}`,
+        className: `${styles.view} ${styles[componentName?.toLowerCase()]}`,
+        style: { zIndex },
+      });
+    });
   };
-  // return <div className={styles.bodyLayout}>{children}</div>;
-  // return <div className={styles.bodyLayout}>{renderStackViews()}</div>;
-  return <div className={styles.bodyLayout}>{children}</div>;
+
+  return <div className={styles.bodyLayout}>{renderStackViews()}</div>;
 };
 
 const ViewLayout = ({ view, children }) => {
