@@ -1,52 +1,39 @@
+import Header from '../../../context/page-layout/PageLayoutHeader';
 import { TimerIcon } from '../../../icons';
-import withHeaderButtons from '../../../utils/withHeaderButtons';
-
-const ButtonHeader = ({ setChange, select, children }) => {
-  return (
-    <button className="button_2" onClick={() => setChange(select)}>
-      {children}
-    </button>
-  );
-};
+import withHeaderButtons from '../../../utils/HOC/withHeaderButtons';
+import {
+  BodyLayout,
+  CommonView1,
+  CommonView2,
+  ManageView,
+  StorageView,
+} from './BodyLayout';
 
 const buttons = (
-  <>
-    <ButtonHeader /* setChange={setChange} select="timer" */>
+  <Header>
+    <Header.Button buttonView="CommonView1">
       <TimerIcon />
-    </ButtonHeader>
-  </>
+    </Header.Button>
+    <Header.Button buttonView="CommonView2">
+      <TimerIcon />
+    </Header.Button>
+  </Header>
 );
 
 function CurrentPage() {
-  // const [change, setChange] = useState('store');
-
   // return (
-  //   <PageLayout>
-  //     <CurrentHeader change={change} setChange={setChange} />
-  //     <CurrentBody change={change}>
-  //       <div>Leisure content</div>
-  //       <div>Graph content</div>
-  //       <div>Store content</div>
-  //     </CurrentBody>
-  //   </PageLayout>
+  //   <div className={styles.}>
+  //     <TestView>dentro de TestView</TestView>
+  //   </div>
   // );
-  // const { setHeaderButtons } = useHeaderButtons();
-
-  // Establece los botones cuando el componente se monta
-  // useEffect(() => {
-  //   setHeaderButtons(
-  //     <>
-  //       <ButtonHeader /* setChange={setChange} select="timer" */>
-  //         <TimerIcon />
-  //       </ButtonHeader>
-  //     </>
-  //   );
-
-  //   // Limpia los botones cuando el componente se desmonta
-  //   return () => setHeaderButtons(null);
-  // }, [setHeaderButtons]);
-
-  return <div>CurrentPage</div>;
+  return (
+    <BodyLayout>
+      <CommonView1 />
+      <CommonView2 />
+      <StorageView />
+      <ManageView />
+    </BodyLayout>
+  );
 }
 
 export default withHeaderButtons(buttons)(CurrentPage);

@@ -1,24 +1,29 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { useHeaderButtons } from '../../context/HeaderButtonsProvider';
+import Header from '../../context/page-layout/PageLayoutHeader';
+import { usePageLayout } from '../../context/page-layout/PageLayoutProvider';
 import { ManageIcon, RefreshIcon, StorageIcon } from '../../icons';
 import styles from './page-layout.module.css';
 
 export default function PageLayout({ children }) {
-  // const [header, body, footer] = React.Children.toArray(children);
-  const { headerButtons } = useHeaderButtons();
+  const { changeView, headerButtons, refreshView } = usePageLayout();
 
   return (
     <div className={styles.pageLayoutGrid}>
       <div className={styles.header}>
         <div className={styles.customButtons}>{headerButtons}</div>
-        <div className={styles.space}>Spage</div>
+        <div className={styles.space}>Space</div>
         <div className={styles.defaultButtons}>
-          <ButtonHeader>
-            <StorageIcon />
-            <ManageIcon />
-            <RefreshIcon />
-          </ButtonHeader>
+          <Header>
+            <Header.Button buttonView="StorageView">
+              <StorageIcon />
+            </Header.Button>
+            <Header.Button buttonView="ManageView">
+              <ManageIcon />
+            </Header.Button>
+            <Header.Button onClick={refreshView}>
+              <RefreshIcon />
+            </Header.Button>
+          </Header>
         </div>
       </div>
       <div className={styles.body}>
@@ -27,22 +32,3 @@ export default function PageLayout({ children }) {
     </div>
   );
 }
-
-const ButtonHeader = ({ setChange, select, children }) => {
-  // return (
-  //   <button className="button_2">
-  //     {children}
-  //   </button>
-  // );
-  const childrenArray = React.Children.toArray(children);
-
-  return (
-    <>
-      {childrenArray.map((child, index) => (
-        <button className="button_2" key={index}>
-          {child}
-        </button>
-      ))}
-    </>
-  );
-};

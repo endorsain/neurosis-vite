@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { HeaderButtonsProvider } from './context/HeaderButtonsProvider';
+import PageLayoutProvider from './context/page-layout/PageLayoutProvider';
 import { AuthLayout, MainLayout, PageLayout } from './layouts';
 import { Signin, Signup } from './pages/access-pages';
 import { CurrentPage } from './pages/main-pages';
@@ -13,9 +13,9 @@ function App() {
           element={
             // <AuthProvider>
             <MainLayout>
-              <HeaderButtonsProvider>
+              <PageLayoutProvider>
                 <PageLayout />
-              </HeaderButtonsProvider>
+              </PageLayoutProvider>
             </MainLayout>
             // </AuthProvider>
           }

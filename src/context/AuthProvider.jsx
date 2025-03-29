@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getGeneralDataThunk } from '../store/thunks';
 
-export function AuthProvider({ children }) {
+export default function AuthProvider({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
 

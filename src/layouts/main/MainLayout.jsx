@@ -42,10 +42,7 @@ export default function MainLayout({ children }) {
           }
         />
       </div>
-      <div className={styles.children}>
-        {/* <Outlet /> */}
-        {children}
-      </div>
+      <div className={styles.children}>{children}</div>
     </div>
   );
 }

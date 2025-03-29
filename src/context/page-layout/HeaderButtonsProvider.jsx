@@ -4,6 +4,7 @@ const HeaderButtonsContext = createContext();
 
 export function HeaderButtonsProvider({ children }) {
   const [headerButtons, setHeaderButtons] = useState(null);
+
   return (
     <HeaderButtonsContext.Provider value={{ headerButtons, setHeaderButtons }}>
       {children}
