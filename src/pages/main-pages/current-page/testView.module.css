@@ -1,0 +1,12 @@
+.view1,
+.view2 {
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+}
+.view1 {
+  background: cyan;
+}
+.view2 {
+  background: yellow;
+}

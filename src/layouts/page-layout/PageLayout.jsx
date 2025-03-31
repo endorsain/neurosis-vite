@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../../context/page-layout/PageLayoutHeader';
+import { PageLayoutHeader } from '../../components';
 import { usePageLayout } from '../../context/page-layout/PageLayoutProvider';
 import { ManageIcon, RefreshIcon, StorageIcon } from '../../icons';
 import styles from './page-layout.module.css';
 
-export default function PageLayout({ children }) {
-  const { changeView, headerButtons, refreshView } = usePageLayout();
+export default function PageLayout() {
+  const { headerButtons, refreshView } = usePageLayout();
 
   return (
     <div className={styles.pageLayoutGrid}>
@@ -13,17 +13,21 @@ export default function PageLayout({ children }) {
         <div className={styles.customButtons}>{headerButtons}</div>
         <div className={styles.space}>Space</div>
         <div className={styles.defaultButtons}>
-          <Header>
-            <Header.Button buttonView="StorageView">
-              <StorageIcon />
-            </Header.Button>
-            <Header.Button buttonView="ManageView">
-              <ManageIcon />
-            </Header.Button>
-            <Header.Button onClick={refreshView}>
-              <RefreshIcon />
-            </Header.Button>
-          </Header>
+          <PageLayoutHeader>
+            <PageLayoutHeader.Button
+              viewName="StorageView"
+              icon={<StorageIcon />}
+            />
+            <PageLayoutHeader.Button
+              viewName="ManageView"
+              icon={<ManageIcon />}
+            />
+
+            <PageLayoutHeader.Button
+              icon={<RefreshIcon />}
+              onClick={refreshView}
+            />
+          </PageLayoutHeader>
         </div>
       </div>
       <div className={styles.body}>
