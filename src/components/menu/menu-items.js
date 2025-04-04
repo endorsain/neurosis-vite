@@ -1,42 +1,14 @@
 export const menuItems = [
   {
-    label: 'CURRENT',
+    label: 'Activities',
     link: '/',
   },
-  // {
-  //   label: 'HISTORY',
-  //   link: '/history',
-  // },
-  // {
-  //   label: 'STUDIES',
-  //   link: '/studies',
-  // },
-  // {
-  //   label: 'FITNESS',
-  //   link: '/fitness',
-  // },
-  // {
-  //   label: 'PROJECTS',
-  //   link: '/projects',
-  // },
-  // {
-  //   label: 'NOTIFICATIONS',
-  //   link: '/notifications',
-  // },
-  // {
-  //   label: 'SOCIAL',
-  //   link: '/social',
-  // },
-  // {
-  //   label: 'CALENDAR',
-  //   link: '/calendar',
-  // },
-  // {
-  //   label: 'MANAGE',
-  //   link: '/manage',
-  // },
   {
-    label: 'LOGOUT',
+    label: 'History',
+    link: '/history',
+  },
+  {
+    label: 'Log out',
     link: '/logout',
   },
 ];

@@ -1,3 +1,3 @@
-export { default as AuthLayout } from './auth/AuthLayout';
-export { default as MainLayout } from './main/MainLayout';
-export { default as PageLayout } from './page-layout/PageLayout';
+export { default as AccessLayout } from './accessLayout/AccessLayout';
+export { default as MainLayout } from './mainLayout/MainLayout';
+export { default as PageLayout } from './pageLayout/PageLayout';

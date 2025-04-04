@@ -4,6 +4,7 @@
 @import './_buttons.css';
 @import './_inputs.css';
 @import './_scrollbar.css';
+@import './_fonts.css';
 
 /* tablet */
 @media (min-width: 768px) {

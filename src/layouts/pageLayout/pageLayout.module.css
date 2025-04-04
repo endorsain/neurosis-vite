@@ -1,0 +1,64 @@
+:root {
+  --size-page-grid-1: var(--mainLayout-size-40px);
+  --size-page-grid-2: var(--mainLayout-size-30px);
+}
+.pageLayoutGrid {
+  background: var(--brown);
+  display: grid;
+  grid-template-rows: var(--size-page-grid-1) auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  opacity: 0;
+  animation: var(--fadeIn);
+
+  & > *:not(:last-child) {
+    border-bottom: var(--border-1);
+  }
+}
+.header {
+  /* background: yellow; */
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+
+  & > *:not(:last-child) {
+    border-right: var(--border-1);
+  }
+}
+
+.customButtons,
+.defaultButtons {
+  & > button {
+    width: var(--size-page-grid-1);
+  }
+  & > button:not(:last-child) {
+    border-right: var(--border-1);
+  }
+}
+.customButtons {
+  /* background: cyan; */
+  display: flex;
+  margin-right: auto;
+}
+.defaultButtons {
+  /* background: green; */
+  display: flex;
+  margin-left: auto;
+}
+.space {
+  /* background: pink; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+/* labtop */
+@media (min-width: 1024px) {
+  .pageLayoutGrid {
+    grid-template-rows: var(--size-page-grid-1) auto;
+    border-radius: var(--border-radius-15) var(--border-radius-15) 0px 0px;
+  }
+}

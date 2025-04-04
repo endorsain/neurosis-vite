@@ -1,8 +1,8 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import PageLayoutProvider from './context/page-layout/PageLayoutProvider';
-import { AuthLayout, MainLayout, PageLayout } from './layouts';
-import { Signin, Signup } from './pages/access-pages';
-import { CurrentPage } from './pages/main-pages';
+import { PageLayoutProvider } from './context';
+import { AccessLayout, MainLayout, PageLayout } from './layouts';
+import { SignInPage, SignUpPage } from './pages/accessPages';
+import { ActivitiesPage } from './pages/mainPages';
 
 function App() {
   return (
@@ -20,12 +20,12 @@ function App() {
             // </AuthProvider>
           }
         >
-          <Route element={<CurrentPage />} path="/" />
+          <Route element={<ActivitiesPage />} path="/" />
         </Route>
         {/* Otros */}
-        <Route element={<AuthLayout />}>
-          <Route element={<Signin />} path="/sign-in" />
-          <Route element={<Signup />} path="/sign-up" />
+        <Route element={<AccessLayout />}>
+          <Route element={<SignInPage />} path="/sign-in" />
+          <Route element={<SignUpPage />} path="/sign-up" />
         </Route>
       </Routes>
     </Router>

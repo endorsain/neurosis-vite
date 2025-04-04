@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { MenuIcon } from '../../icons';
-import { logoutThunk } from '../../store/thunks';
+import { MenuIcon } from '../../assets/icons';
+import { logOutThunk } from '../../store/thunks';
 import { menuItems } from './menu-items';
 import styles from './menu.module.css';
 
@@ -18,7 +18,7 @@ export default function Menu(props) {
     // button.disabled = true;
 
     if (value === '/logout') {
-      dispatch(logoutThunk()).then(result => {
+      dispatch(logOutThunk()).then(result => {
         if (result.meta.requestStatus === 'fulfilled') {
           return navigate('/sign-in');
         }

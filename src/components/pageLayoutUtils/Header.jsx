@@ -1,15 +1,18 @@
-import { usePageLayout } from '../../context/page-layout/PageLayoutProvider';
+import { usePageLayout } from '../../context';
 
 // Componente para un botón individual
 const Button = ({
   onClick,
   className = '',
-  viewName,
+  viewName = null,
   icon = null,
   ...restProps
 }) => {
   const { changeView } = usePageLayout();
-  onClick = () => changeView(viewName);
+
+  if (viewName !== null) {
+    onClick = () => changeView(viewName);
+  }
 
   return (
     <button

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { usePageLayout } from '../../context/page-layout/PageLayoutProvider';
-import { ManageView, StorageView } from '../views/Views';
+import { usePageLayout } from '../../context';
+import { ManageView, StorageView } from '../../views';
 import styles from './body.module.css';
 
 const PageLayoutBody = ({ children }) => {
@@ -11,8 +11,6 @@ const PageLayoutBody = ({ children }) => {
   childrenArray.push(<StorageView />);
   childrenArray.push(<ManageView />);
 
-  console.log(childrenArray);
-
   const viewComponents = {};
   childrenArray.forEach(child => {
     const componentName = child.type.name || child.type.displayName;
@@ -21,30 +19,18 @@ const PageLayoutBody = ({ children }) => {
 
   useEffect(() => {
     if (activeView === null) {
-      console.log(
-        'DENTRO - 1 ',
-        childrenArray[0].type.name || childrenArray[0].type.displayName
-      );
       changeView(
         childrenArray[0].type.name || childrenArray[0].type.displayName
       );
-      // changeView();
-      // setStackView(childrenArray);
     } else if (activeView && viewComponents[activeView]) {
-      console.log(
-        'DENTRO - 2 ',
-        childrenArray[0].type.name || childrenArray[0].type.displayName
-      );
       setStackView(prev => {
         const activeComponent = viewComponents[activeView];
 
-        const filteredArray = childrenArray.filter(
-          child =>
-            React.isValidElement(child) &&
-            (child.type.name || child.type.displayName) !== activeView
+        const stackWithoutActive = prev.filter(
+          comp => (comp.type.name || comp.type.displayName) !== activeView
         );
 
-        return [activeComponent, ...filteredArray];
+        return [...stackWithoutActive, activeComponent];
       });
     }
   }, [activeView]);
@@ -68,8 +54,12 @@ const PageLayoutBody = ({ children }) => {
   return <div className={styles.body}>{renderStackView()}</div>;
 };
 
-const View = ({ viewName, children, sizeView }) => {
-  const { activeView } = usePageLayout();
+const View = ({ children, viewName, placeholderView, sizeView }) => {
+  const { activeView, addPlaceholderView } = usePageLayout();
+
+  useEffect(() => {
+    addPlaceholderView(placeholderView);
+  }, [activeView]);
 
   const isVisible = activeView === viewName;
   const viewClasses = `${styles.views} ${isVisible ? styles.visible : styles.hidden}`;
@@ -77,10 +67,14 @@ const View = ({ viewName, children, sizeView }) => {
   switch (sizeView) {
     case 'small':
       return (
-        <div className={`${viewClasses} ${styles.smallView}`}>{children}</div>
+        <div
+          className={`${viewClasses} ${styles.smallView} ${isVisible ? styles.shadow : ''}`}
+        >
+          {children}
+        </div>
       );
     default:
-      console.log('viewName - default: ', viewName);
+      // console.log('viewName - default: ', viewName);
       return (
         <div className={`${viewClasses} ${styles.normalView}`}>{children}</div>
       );

@@ -1,4 +1,4 @@
-import { ArrowIcon } from '../../icons';
+import { ArrowIcon } from '../../assets/icons';
 import styles from './friends.module.css';
 
 export default function Friends(props) {

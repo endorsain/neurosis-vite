@@ -1,0 +1,90 @@
+.chronometer {
+  background: rgb(160, 48, 35);
+  display: grid;
+  grid-template-rows: 23px 60px;
+  & > *:not(:last-child) {
+    border-bottom: var(--border-1);
+  }
+}
+.header {
+  background: sandybrown;
+  height: 100%;
+}
+.body {
+  background: hotpink;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  /* grid-template-rows: auto auto auto auto;
+  grid-template-areas: 'total_month total_current current buttons'; */
+  overflow: hidden;
+}
+.totalMonth,
+.totalCurrent,
+.current,
+.buttons {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow: hidden;
+  width: fit-content;
+}
+.totalMonth {
+  background: red;
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end; */
+
+  /* height: 100%;
+  width: 180px;
+  overflow: hidden; */
+}
+.xd1,
+.xd2 {
+  display: inline-block; /* Comportamiento inline pero con propiedades de bloque */
+  line-height: 1;
+  padding: 0; /* Eliminar cualquier padding */
+  margin: 0; /* Eliminar cualquier margen */
+}
+.xd1 {
+  background: green;
+  font-size: 40px;
+}
+.xd2 {
+  background: greenyellow;
+  font-size: 30px;
+}
+
+.totalCurrent {
+  background: rebeccapurple;
+
+  & > div:nth-child(1) {
+    background: white;
+  }
+
+  & > div:nth-child(2) {
+    background: yellow;
+  }
+
+  & > div:nth-child(3) {
+    background: cyan;
+  }
+}
+.current {
+  background: seagreen;
+
+  & > div:nth-child(2) {
+    background: yellow;
+  }
+
+  & > div:nth-child(3) {
+    background: cyan;
+  }
+}
+.buttons {
+  background: antiquewhite;
+}

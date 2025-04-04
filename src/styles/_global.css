@@ -2,6 +2,7 @@ html,
 body {
   /* background: var(--black); */
   /* color: var(--black); */
+  font-family: 'MuseoModerno', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
