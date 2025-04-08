@@ -43,7 +43,7 @@
 }
 
 /* TODO: USAR ESTO POR SI NO SE PUEDE O NO QUIERO USAR SCROLL DE X */
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   border-left: var(--scroll-border);
   overflow: hidden;
 }
@@ -55,4 +55,4 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scroll-hover-background);
-} */
+}

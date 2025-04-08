@@ -10,8 +10,8 @@ export const Chronometer = () => {
       },
     },
     total_current: {
-      focus: 134124,
-      break: 213123,
+      focus: 5153539,
+      break: 5153551,
       get total() {
         return this.focus + this.break;
       },
@@ -21,7 +21,18 @@ export const Chronometer = () => {
       break: 12512,
     },
   };
+  return (
+    <div className={styles.chronometer}>
+      <div className={styles.header}>nombre de la actividad - 01/19/25</div>
+      <div className={styles.body}>
+        <TotalTime time={test_value.total_month} text="month time" />
+        <TotalTime time={test_value.total_current} text="current time" />
+      </div>
+    </div>
+  );
+};
 
+const TotalTime = ({ time, text }) => {
   function formatTimeFromMilliseconds(milliseconds, format = 'hh:mm:ss') {
     // Cálculos base
     const ms = milliseconds % 1000;
@@ -53,61 +64,21 @@ export const Chronometer = () => {
     }
   }
   return (
-    <div className={styles.chronometer}>
-      <div className={styles.header}>nombre de la actividad - 01/19/25</div>
-      <div className={styles.body}>
-        <div className={styles.totalMonth}>
-          <span className={styles.xd1}>
-            {formatTimeFromMilliseconds(
-              test_value.total_month.total,
-              'd:hh:mm'
-            )}
-          </span>
-          <span className={styles.xd2}>
-            {formatTimeFromMilliseconds(
-              test_value.total_month.focus,
-              'd:hh:mm'
-            )}
-          </span>
-          <div className={styles.xd2}>
-            {formatTimeFromMilliseconds(
-              test_value.total_month.break,
-              'd:hh:mm'
-            )}
-          </div>
+    <div className={styles.totalTime}>
+      <div className={styles.headerTime}>{text}</div>
+      <div className={styles.bodyTime}>
+        <div className={styles.boxTime}>
+          <div>total</div>
+          <span>{formatTimeFromMilliseconds(time.total, 'd:hh:mm')}</span>
         </div>
-        {/*         <div className={styles.totalCurrent}>
-          <div>
-            {formatTimeFromMilliseconds(
-              test_value.total_current.total,
-              'hh:mm'
-            )}
-          </div>
-          <div>
-            {formatTimeFromMilliseconds(
-              test_value.total_current.focus,
-              'hh:mm'
-            )}
-          </div>
-          <div>
-            {formatTimeFromMilliseconds(
-              test_value.total_current.break,
-              'hh:mm'
-            )}
-          </div>
+        <div className={styles.boxTime}>
+          <div>focus</div>
+          <span>{formatTimeFromMilliseconds(time.focus, 'd:hh:mm')}</span>
         </div>
-        <div className={styles.current}>
-          <div>
-            {formatTimeFromMilliseconds(test_value.current.focus, 'hh:mm:ss')}
-          </div>
-          <div>
-            {formatTimeFromMilliseconds(test_value.current.break, 'hh:mm:ss')}
-          </div>
+        <div className={styles.boxTime}>
+          <div>break</div>
+          <span>{formatTimeFromMilliseconds(time.break, 'd:hh:mm')}</span>
         </div>
-        <div className={styles.buttons}>
-          <button>boton 1</button>
-          <button>boton 2</button>
-        </div> */}
       </div>
     </div>
   );
