@@ -1,0 +1,82 @@
+.timerSection {
+  /* background: white; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  & > *:not(:last-child) {
+    border-bottom: var(--border-1);
+  }
+}
+.header {
+  /* background: white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+}
+.body {
+  /* background: yellow; */
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  & > *:not(:last-child) {
+    border-right: var(--border-1);
+  }
+}
+
+.box {
+  /* background: cyan; */
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+
+  & > * {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  & > div {
+    /* background: red; */
+    width: 50px;
+    font-size: 12px;
+  }
+  & > span {
+    /* background: green; */
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+
+  & > button {
+    background: salmon;
+    font-size: 12px;
+    /* display: flex; */
+    width: 100%;
+    /* height: 100%; */
+
+    &:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+  }
+}

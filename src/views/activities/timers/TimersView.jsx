@@ -1,29 +1,31 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { PageLayoutBody } from '../../../components';
-import { Chronometer } from './Chronometer';
+import { AddActivityForm, Timer } from './components';
 import styles from './timersView.module.css';
 
 const TimersView = () => {
+  // Prueba de vista de timers.
+  const dispatch = useDispatch();
+  const { activities, current } = useSelector(state => state.activities);
+
+  useEffect(() => {
+    console.log('actividades', activities);
+  }, [activities]);
+
   return (
     <PageLayoutBody.View viewName="TimersView" placeholderView="Timer view">
       <div className={styles.timersGrid}>
         <div className={styles.header}>
-          <TimersForm />
+          <AddActivityForm />
         </div>
         <div className={styles.body}>
-          <Chronometer />
+          {activities.map((activity, index) => (
+            <Timer activity={activity} key={index} />
+          ))}
         </div>
       </div>
     </PageLayoutBody.View>
-  );
-};
-
-const TimersForm = () => {
-  return (
-    <div className={styles.form}>
-      <input className={styles.input} type="text" />
-      <button className={styles.add}>agregar</button>
-      <button className={styles.filter}>filtrar</button>
-    </div>
   );
 };
 

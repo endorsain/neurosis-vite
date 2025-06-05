@@ -11,25 +11,6 @@
 .header {
   /* background: red; */
 }
-
-.form {
-  /* background: green; */
-  display: flex;
-  height: 100%;
-}
-.input {
-  /* background: rgb(73, 73, 156); */
-  width: 100%;
-}
-.add {
-  background: cyan;
-  min-width: 80px;
-}
-.filter {
-  background: violet;
-  min-width: 80px;
-}
-
 .body {
   /* background: yellow; */
   overflow: auto;

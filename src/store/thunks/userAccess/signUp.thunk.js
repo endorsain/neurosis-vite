@@ -16,11 +16,11 @@ const signUpThunk = createAsyncThunk(
         headers: {},
       });
 
-      const userCrdential = await signInWithCustomToken(
+      const userCredential = await signInWithCustomToken(
         auth,
         response.data.idToken
       );
-      const user = userCrdential.user;
+      const user = userCredential.user;
 
       await sendEmailVerification(user);
 

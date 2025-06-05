@@ -14,6 +14,7 @@
   --brown-2: #a5814e;
   --brown-3: #695333;
   --brown-4: #4d3f2c;
+  --brown-5: #8a6c44;
 
   --red: #fd0202;
   --blue: #2200ff;
@@ -43,6 +44,7 @@
   /* Animation */
   --fadeIn: fadeIn var(--seconds-02) ease forwards;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;

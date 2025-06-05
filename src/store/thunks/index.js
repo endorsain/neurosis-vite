@@ -1,3 +1,4 @@
+export { default as addActivityThunk } from './activities/addActivity.thunk';
 export { default as getGeneralDataThunk } from './commonThunks/getGeneralData.thunk';
 export { default as logOutThunk } from './commonThunks/logOut.thunk';
 export { default as signInThunk } from './userAccess/signIn.thunk';
