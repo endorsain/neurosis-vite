@@ -1,0 +1,39 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+
+  background: chartreuse;
+  width: 350px;
+
+  padding: 10px;
+}
+
+.page_container {
+  background: salmon;
+  overflow: hidden;
+
+  input:focus {
+    outline: none;
+  }
+
+  & > form {
+    display: flex;
+
+    height: 140px;
+    flex-direction: column;
+
+    & > * {
+      width: 100%;
+      height: 30px;
+    }
+  }
+}
+
+.auth_nav {
+  background: peru;
+  height: 25px;
+}
+.nav_link {
+  text-decoration: none;
+  color: #3b82f6;
+}

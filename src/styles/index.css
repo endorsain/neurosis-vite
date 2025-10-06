@@ -1,0 +1,22 @@
+/* @import "tailwindcss"; TODO: RARO
+@import "./_variables.css";
+@import "./_global.css";
+@import "./_buttons.css";
+@import "./_inputs.css";
+@import "./_scrollbar.css";
+@import "./_fonts.css"; */
+@import "./_variables.css";
+@import "./_global.css";
+
+/* tablet */
+@media (min-width: 768px) {
+}
+/* labtop */
+@media (min-width: 1024px) {
+}
+/* desktop */
+@media (min-width: 1680px) {
+}
+
+/* b49964 Oscuro*/
+/* d1c09f Claro */

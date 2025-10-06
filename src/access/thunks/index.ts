@@ -1,0 +1,1 @@
+export { sendGoogleCredential } from "./sendGoogleCredential";

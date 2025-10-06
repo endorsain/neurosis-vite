@@ -1,0 +1,1 @@
+export { getGeneralData } from "./getGeneralData";
