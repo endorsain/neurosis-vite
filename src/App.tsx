@@ -1,5 +1,10 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { AccessLayout, LoginPage, RegisterPage } from "./access/index";
+import {
+  AccessLayout,
+  GoogleRegister,
+  LoginPage,
+  RegisterPage,
+} from "./access/index";
 import { MainLayout, HomePage, RandomPage } from "./main/index";
 import { AuthProvider } from "./auth/AuthProvider";
 
@@ -22,6 +27,7 @@ function App() {
         <Route element={<AccessLayout />}>
           <Route element={<LoginPage />} path="/login" />
           <Route element={<RegisterPage />} path="/register" />
+          <Route element={<GoogleRegister />} path="/google" />
         </Route>
       </Routes>
     </Router>

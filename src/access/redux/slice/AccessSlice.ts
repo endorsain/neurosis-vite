@@ -12,6 +12,7 @@ const initialState = {
   // LOADING_REQUEST es buena para todas las request del slice
   loading_request: false,
   error: null,
+  //UI
 };
 
 // Aqui se puede conglomerar

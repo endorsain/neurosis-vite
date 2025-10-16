@@ -16,11 +16,13 @@ export function LoginPage() {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <>
       <Link to="/register">Ir a Registro</Link>
-      <input type="text" placeholder="Email" {...register("email")} />
-      <input type="text" placeholder="Password" {...register("password")} />
-      <button type="submit">Enviar</button>
-    </form>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <input type="text" placeholder="Email" {...register("email")} />
+        <input type="text" placeholder="Password" {...register("password")} />
+        <button type="submit">Enviar</button>
+      </form>
+    </>
   );
 }
