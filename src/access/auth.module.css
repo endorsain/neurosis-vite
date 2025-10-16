@@ -2,15 +2,16 @@
   display: flex;
   flex-direction: column;
 
-  background: chartreuse;
+  background: #346797;
   width: 350px;
 
   padding: 10px;
 }
 
 .page_container {
-  background: salmon;
+  background: #9eb646;
   overflow: hidden;
+  height: 200px;
 
   input:focus {
     outline: none;
@@ -19,7 +20,7 @@
   & > form {
     display: flex;
 
-    height: 140px;
+    /* height: 180px; */
     flex-direction: column;
 
     & > * {
@@ -29,11 +30,7 @@
   }
 }
 
-.auth_nav {
-  background: peru;
-  height: 25px;
-}
-.nav_link {
-  text-decoration: none;
-  color: #3b82f6;
+.apartado {
+  overflow: hidden;
+  height: 100px;
 }

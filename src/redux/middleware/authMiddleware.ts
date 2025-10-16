@@ -1,8 +1,8 @@
 export const authMiddleware = (store: any) => (next: any) => (action: any) => {
   console.log("Inicio de authMiddleware");
 
-  console.log(action.type.endsWith("rejected"));
-  console.log(action.payload?.status);
+  console.log("action rejected? ", action.type.endsWith("rejected"));
+  console.log("action.status: ", action.payload?.status);
 
   const result = next(action);
   if (action.type.endsWith("rejected") && action.payload.status === 401) {

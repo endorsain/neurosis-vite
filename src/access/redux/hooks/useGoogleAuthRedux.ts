@@ -1,26 +1,24 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setGoogleLoaded } from "../slice/AccessSlice";
-import { AccessThunks } from "../AccessThunks";
-import type { GoogleCredentialResponse } from "./types";
+import { setGoogleCredential, setGoogleLoaded } from "../slice/AccessSlice";
+import { AccessThunks } from "../";
 
 export function useGoogleAuthRedux() {
   const dispatch = useDispatch<any>();
 
-  const sendGoogleCredential = useCallback(
-    async (credential: string) => {
-      await dispatch(AccessThunks.sendGoogleCredentialThunk(credential));
+  const handleGoogleResponse = useCallback(
+    async (response: any) => {
+      if (!response?.credential) return;
+
+      // 1) Guardar la respuesta de Google en el store
+      dispatch(setGoogleCredential(response.credential));
+
+      // 2) Luego despachar el thunk que lo manda al backend
+      // Podés hacerlo inmediatamente o esperar a que el
+      // usuario confirme (si el backend devuelve "email no existe")
+      dispatch(AccessThunks.accessWithGoogleThunk(response.credential));
     },
     [dispatch]
-  );
-
-  const handleGoogleResponse = useCallback(
-    async (response: GoogleCredentialResponse) => {
-      if (response?.credential) {
-        await sendGoogleCredential(response.credential);
-      }
-    },
-    [sendGoogleCredential]
   );
 
   useEffect(() => {
@@ -29,7 +27,6 @@ export function useGoogleAuthRedux() {
         initializeGoogle();
         return;
       }
-
       const script = document.createElement("script");
       script.src = "https://accounts.google.com/gsi/client";
       script.onload = initializeGoogle;
@@ -42,6 +39,7 @@ export function useGoogleAuthRedux() {
           client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
           callback: handleGoogleResponse,
         });
+
         dispatch(setGoogleLoaded(true));
 
         setTimeout(() => {
