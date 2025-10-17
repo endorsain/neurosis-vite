@@ -5,6 +5,7 @@ import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { useGoogleAuthRedux } from "../redux/hooks/useGoogleAuthRedux";
 import { clearGoogleCredential } from "../redux/slice/AccessSlice";
+import { PATHS } from "../../shared";
 
 export function AccessLayout() {
   useGoogleAuthRedux();
@@ -28,7 +29,7 @@ export function AccessLayout() {
       //   setAuthView("googleRegister");
       // });
       // setAuthView("googleRegister");
-      navigate("/google");
+      navigate(PATHS.access.google);
     }
   }, [google_credential, error]);
 

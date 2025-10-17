@@ -1,3 +1,5 @@
+import { PATHS } from "../../shared";
+
 export const authMiddleware = (store: any) => (next: any) => (action: any) => {
   console.log("Inicio de authMiddleware");
 
@@ -9,7 +11,7 @@ export const authMiddleware = (store: any) => (next: any) => (action: any) => {
     console.log(action.payload.status);
 
     console.log("te vas negri!");
-    window.location.href = "/login";
+    window.location.href = PATHS.access.login;
   }
 
   console.log("authMidd ACTION : ", action);

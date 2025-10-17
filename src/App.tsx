@@ -1,12 +1,13 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import {
   AccessLayout,
-  GoogleRegister,
+  GoogleRegisterPage,
   LoginPage,
   RegisterPage,
 } from "./access/index";
 import { MainLayout, HomePage, RandomPage } from "./main/index";
 import { AuthProvider } from "./auth/AuthProvider";
+import { PATHS } from "./shared";
 
 function App() {
   return (
@@ -20,14 +21,14 @@ function App() {
             </AuthProvider>
           }
         >
-          <Route element={<HomePage />} path="/" />
-          <Route element={<RandomPage />} path="/random" />
+          <Route element={<HomePage />} path={PATHS.main.home} />
+          <Route element={<RandomPage />} path={PATHS.main.random} />
         </Route>
         {/* Access */}
         <Route element={<AccessLayout />}>
-          <Route element={<LoginPage />} path="/login" />
-          <Route element={<RegisterPage />} path="/register" />
-          <Route element={<GoogleRegister />} path="/google" />
+          <Route element={<LoginPage />} path={PATHS.access.login} />
+          <Route element={<RegisterPage />} path={PATHS.access.register} />
+          <Route element={<GoogleRegisterPage />} path={PATHS.access.google} />
         </Route>
       </Routes>
     </Router>

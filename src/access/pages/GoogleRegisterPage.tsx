@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import styles from "../auth.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { clearGoogleCredential } from "../redux/slice/AccessSlice";
 
-export function GoogleRegister() {
+export function GoogleRegisterPage() {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch<any>();
@@ -29,17 +29,10 @@ export function GoogleRegister() {
     console.log("handleCancel");
     dispatch(clearGoogleCredential());
     navigate(-1 as any, { replace: true });
-    // window.location.replace("/login");
-    // dispatch(clearGoogleCredential);
-    // onCancel();
   }
   console.log("google_credential: ", google_credential);
   return (
     <>
-      {/* <Link to="/register">Volver</Link> */}
-      {/* <button onClick={() => navigate(-1 as any, { replace: true })}>
-        Volver
-      </button> */}
       <button onClick={handleCancel}>Volver</button>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input
