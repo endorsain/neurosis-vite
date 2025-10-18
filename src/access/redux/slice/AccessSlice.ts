@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AccessThunks } from "../";
+// import { AccessThunks } from "../";
 import {
   handle_pending,
   handle_rejected,
   accessWithGoogle_fulfilled,
 } from "./utils";
+import { AccessThunks } from "../thunks";
 
 const initialState = {
   google_loaded: false,
@@ -19,7 +20,7 @@ const initialState = {
 // accessWithgoogle.fulfilled, accessWithgoogle.rejected, etc...
 
 const fulfilledHandlers = {
-  [AccessThunks.accessWithGoogleThunk.typePrefix]: accessWithGoogle_fulfilled,
+  [AccessThunks.accessWithGoogle.typePrefix]: accessWithGoogle_fulfilled,
 };
 
 const AccessSlice = createSlice({
@@ -50,6 +51,5 @@ const AccessSlice = createSlice({
 
 export const { setGoogleLoaded, setGoogleCredential, clearGoogleCredential } =
   AccessSlice.actions;
-const AccessReducer = AccessSlice.reducer;
 
-export default AccessReducer;
+export const AccessReducer = AccessSlice.reducer;

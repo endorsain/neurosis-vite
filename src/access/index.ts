@@ -3,4 +3,4 @@ export { RegisterPage } from "./pages/RegisterPage";
 export { AccessLayout } from "./layout/AccessLayout";
 export { GoogleRegisterPage } from "./pages/GoogleRegisterPage";
 //
-export { default as AccessReducer } from "./redux/slice/AccessSlice";
+export { AccessReducer } from "./redux";

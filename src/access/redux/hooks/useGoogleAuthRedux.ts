@@ -1,17 +1,17 @@
 import { useCallback, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setGoogleCredential, setGoogleLoaded } from "../slice/AccessSlice";
+import { AccessActions } from "../";
 import { AccessThunks } from "../";
+import { useAppDispatch } from "../../../redux/useStore";
 
 export function useGoogleAuthRedux() {
-  const dispatch = useDispatch<any>();
+  const dispatch = useAppDispatch();
 
   const handleGoogleResponse = useCallback(
     async (response: any) => {
       if (!response?.credential) return;
 
       // 1) Guardar la respuesta de Google en el store
-      dispatch(setGoogleCredential(response.credential));
+      dispatch(AccessActions.setGoogleCredential(response.credential));
 
       // 2) Luego despachar el thunk que lo manda al backend
       // Podés hacerlo inmediatamente o esperar a que el
@@ -40,7 +40,7 @@ export function useGoogleAuthRedux() {
           callback: handleGoogleResponse,
         });
 
-        dispatch(setGoogleLoaded(true));
+        dispatch(AccessActions.setGoogleLoaded(true));
 
         setTimeout(() => {
           const el = document.getElementById("google-auth-button");

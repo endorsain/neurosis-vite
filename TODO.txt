@@ -11,11 +11,24 @@ b. Poner las credenciales y los datos de usuario en el estado? ✅
 7) Estado para "loadings".
 8) Hacer el estado para los idiomas, idioma inicial ES, idioma secundario EN.
 
-
 * Idea PageControl, componente en las paginas que interviene los
 * estilos o dinamicas de componente. Se combina con el Estdao de UI?
 
+commits en git
 
+feat: implementar nueva función de búsqueda
+fix: corregir error de inicio de sesión
+docs: actualizar README con nueva información
+refactor: simplificar la lógica de validación
+chore: actualizar dependencias
 
-
-
+feat: Nueva característica.
+fix: Solución a un error (bug).
+chore: Mantenimiento, como actualizaciones de dependencias o cambios en el proceso de compilación, que no afectan la lógica del código de producción.
+docs: Cambios en la documentación.
+style: Cambios que no afectan el significado del código (formato, puntos y comas, etc.).
+refactor: Refactorización de código, sin cambios en las funcionalidades.
+perf: Mejoras de rendimiento.
+test: Añadir o corregir pruebas.
+build: Cambios que afectan el sistema de compilación o dependencias externas.
+ci: Cambios en los archivos y scripts de integración continua.

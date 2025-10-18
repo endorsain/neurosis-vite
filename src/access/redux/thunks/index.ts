@@ -1,1 +1,5 @@
-export { accessWithGoogle } from "./accessWithGoogle";
+import { accessWithGoogle } from "./AccessThunks";
+
+export const AccessThunks = {
+  accessWithGoogle: accessWithGoogle,
+};
