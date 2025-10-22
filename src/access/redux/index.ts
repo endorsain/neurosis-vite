@@ -5,7 +5,7 @@ import {
   AccessReducer,
 } from "./slice/AccessSlice";
 
-import { accessWithGoogle } from "./thunks/AccessThunks";
+export { AccessThunks } from "./thunks";
 
 // ✅ Agrupás las actions (no hay dependencia circular)
 export const AccessActions = {
@@ -15,9 +15,9 @@ export const AccessActions = {
 };
 
 // ✅ Agrupás los thunks
-export const AccessThunks = {
-  accessWithGoogleThunk: accessWithGoogle,
-};
+// export const AccessThunks = {
+//   accessWithGoogleThunk: accessWithGoogle,
+// };
 
 // ✅ Exportás el reducer para usar en rootReducer
 export { AccessReducer };

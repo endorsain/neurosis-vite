@@ -39,10 +39,11 @@ export const accessWithGoogle = createAsyncThunk(
 
 export const loginWithGoogle = createAsyncThunk(
   insertName("loginWithGoogle"),
-  async (payload: IPayload, { rejectWithValue }) => {
+  async (payload: any, { rejectWithValue }) => {
     try {
       console.log("THUNK init");
 
+      // console.log(payload);
       const response = await httpClient.post(
         "/auth/login-with-google",
         payload
@@ -64,6 +65,8 @@ export const registerWithGoogle = createAsyncThunk(
     try {
       console.log("THUNK init");
 
+      console.log(payload);
+
       const response = await httpClient.post(
         "/auth/register-with-google",
         payload
@@ -78,3 +81,41 @@ export const registerWithGoogle = createAsyncThunk(
     }
   }
 );
+
+export const loginUser = createAsyncThunk(
+  insertName("loginUser"),
+  async (payload: any, { rejectWithValue }) => {
+    try {
+      console.log("THUNK init");
+
+      const response = await httpClient.post("/auth/login", payload);
+
+      console.log("THUNK success: ", response.data);
+
+      return response.data;
+    } catch (err: any) {
+      console.log("THUNK error: ", err);
+      return rejectWithValue(err.response?.data || err.message);
+    }
+  }
+);
+
+export const registerUser = createAsyncThunk(
+  insertName("registerUser"),
+  async (payload: any, { rejectWithValue }) => {
+    try {
+      console.log("THUNK init");
+
+      const response = await httpClient.post("/auth/register", payload);
+
+      console.log("THUNK success: ", response.data);
+
+      return response.data;
+    } catch (err: any) {
+      console.log("THUNK error: ", err);
+      return rejectWithValue(err.response?.data || err.message);
+    }
+  }
+);
+
+//TODO: Es mejor hacer un thunk que tenga condiciones?

@@ -1,11 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 // import { AccessThunks } from "../";
-import {
-  handle_pending,
-  handle_rejected,
-  accessWithGoogle_fulfilled,
-} from "./utils";
-import { AccessThunks } from "../thunks";
+// import { loginWithGoogle_handlers } from "./handlers";
+// import { AccessThunks } from "../thunks";
+import { thunkHandlers } from "./handlers";
 
 const initialState = {
   google_loaded: false,
@@ -19,9 +16,9 @@ const initialState = {
 // Aqui se puede conglomerar
 // accessWithgoogle.fulfilled, accessWithgoogle.rejected, etc...
 
-const fulfilledHandlers = {
-  [AccessThunks.accessWithGoogle.typePrefix]: accessWithGoogle_fulfilled,
-};
+// const thunkHandlers = {
+//   [AccessThunks.loginWithGoogle.typePrefix]: loginWithGoogle_handlers,
+// };
 
 const AccessSlice = createSlice({
   name: "access_slice",
@@ -38,14 +35,12 @@ const AccessSlice = createSlice({
     },
   },
   extraReducers: (builder: any) => {
-    Object.entries(fulfilledHandlers).forEach(
-      ([thunkPrefix, fulfilledHandler]) => {
-        builder
-          .addCase(`${thunkPrefix}/pending`, handle_pending)
-          .addCase(`${thunkPrefix}/fulfilled`, fulfilledHandler)
-          .addCase(`${thunkPrefix}/rejected`, handle_rejected);
-      }
-    );
+    Object.entries(thunkHandlers).forEach(([prefix, handler]) => {
+      builder
+        .addCase(`${prefix}/pending`, handler.pending)
+        .addCase(`${prefix}/fulfilled`, handler.fulfilled)
+        .addCase(`${prefix}/rejected`, handler.rejected);
+    });
   },
 });
 

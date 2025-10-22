@@ -1,5 +1,13 @@
-import { accessWithGoogle } from "./AccessThunks";
+import {
+  loginUser,
+  registerUser,
+  registerWithGoogle,
+  loginWithGoogle,
+} from "./AccessThunks";
 
 export const AccessThunks = {
-  accessWithGoogle: accessWithGoogle,
+  loginWithGoogle,
+  registerWithGoogle,
+  loginUser,
+  registerUser,
 };

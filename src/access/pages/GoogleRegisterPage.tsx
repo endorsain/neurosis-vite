@@ -1,40 +1,33 @@
 import { useForm } from "react-hook-form";
 import styles from "../auth.module.css";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { AccessActions } from "../redux";
 import { useAppDispatch, useAppSelector } from "../../redux/useStore";
+import { AccessThunks } from "../redux";
+import { useEffect } from "react";
 
 export function GoogleRegisterPage() {
-  const { register, handleSubmit } = useForm();
-  const navigate = useNavigate();
-
   const dispatch = useAppDispatch();
-  const { google_credential } = useAppSelector((s: any) => s.access);
+  const { register, handleSubmit } = useForm();
 
-  useEffect(() => {
-    if (!google_credential) navigate("../login", { replace: true });
-  }, [google_credential]);
+  const { google_credential } = useAppSelector((s: any) => s.access);
 
   const onSubmit = async (data: any) => {
     console.log("📩 Registro con Google + datos extra:", {
       ...data,
-      // googleCredential,
+      google_credential,
     });
-    // Enviar estos datos al backend
+    const response = dispatch(
+      AccessThunks.registerWithGoogle({
+        ...data,
+        googleCredential: google_credential,
+      })
+    );
+    console.log("esto es data de registro con google: ", response);
   };
-
-  function handleCancel() {
-    console.log("handleCancel");
-    dispatch(AccessActions.clearGoogleCredential());
-    navigate(-1 as any, { replace: true });
-  }
 
   console.log("google_credential: ", google_credential);
 
   return (
     <>
-      <button onClick={handleCancel}>Volver</button>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"

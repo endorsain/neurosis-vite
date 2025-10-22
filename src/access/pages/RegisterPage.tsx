@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import styles from "../auth.module.css";
-import { Link } from "react-router-dom";
+import { AccessThunks } from "../redux";
+import { useAppDispatch } from "../../redux/useStore";
 
 type RegisterData = {
   email: string;
@@ -9,15 +10,18 @@ type RegisterData = {
 };
 
 export function RegisterPage() {
+  const dispatch = useAppDispatch();
   const { register, handleSubmit } = useForm<RegisterData>();
 
   const onSubmit = (data: RegisterData) => {
     console.log("📝 Registro tradicional:", data);
+    const response = dispatch(AccessThunks.registerUser(data));
+    console.log("esto es data de register: ", response);
   };
 
   return (
     <>
-      <Link to="/login">Ir a Login</Link>
+      {/* <Link to="/login">Ir a Login</Link> */}
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input type="test" placeholder="Email" {...register("email")} />
         <input type="text" placeholder="Username" {...register("username")} />

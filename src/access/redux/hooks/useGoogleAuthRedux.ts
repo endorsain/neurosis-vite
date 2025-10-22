@@ -16,7 +16,9 @@ export function useGoogleAuthRedux() {
       // 2) Luego despachar el thunk que lo manda al backend
       // Podés hacerlo inmediatamente o esperar a que el
       // usuario confirme (si el backend devuelve "email no existe")
-      dispatch(AccessThunks.accessWithGoogleThunk(response.credential));
+      dispatch(
+        AccessThunks.loginWithGoogle({ googleCredential: response.credential })
+      );
     },
     [dispatch]
   );
