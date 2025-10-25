@@ -11,6 +11,6 @@ export const PATHS = {
   },
   main: {
     home: `${ROOT.main}`,
-    random: `${ROOT.main}random`,
+    setting: `${ROOT.main}setting`,
   },
 };

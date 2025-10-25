@@ -1,7 +1,7 @@
 {
   "translation": "Traducción",
   "home_test": "Prueba de traducción (Inicio)",
-  "random_test": "Prueba de traducción (Aleatorio)",
+  "setting": "Prueba de traducción (Configuracion)",
   "access_test": "Prueba de traducción (Acceso)",
   "access": {
     "routes_button": {

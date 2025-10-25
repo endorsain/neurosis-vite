@@ -1,7 +1,9 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { AccessLayout, LoginPage, RegisterPage } from "./access/index";
-import { MainLayout, HomePage, RandomPage } from "./main/index";
-import { AuthProvider } from "./auth/AuthProvider";
+import { AuthProvider } from "./provider";
+import { AccessLayout, MainLayout } from "./layout";
+import { HomePage } from "./home";
+import { SettingPage } from "./setting";
+import { LoginPage, RegisterPage } from "./access";
 import { PATHS } from "./shared";
 
 function App() {
@@ -17,7 +19,7 @@ function App() {
           }
         >
           <Route element={<HomePage />} path={PATHS.main.home} />
-          <Route element={<RandomPage />} path={PATHS.main.random} />
+          <Route element={<SettingPage />} path={PATHS.main.setting} />
         </Route>
         {/* Access */}
         <Route element={<AccessLayout />}>

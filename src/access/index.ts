@@ -1,5 +1,2 @@
-export { LoginPage } from "./pages/LoginPage";
-export { RegisterPage } from "./pages/RegisterPage";
-export { AccessLayout } from "./layout/AccessLayout";
-//
-export { AccessReducer } from "./redux";
+export { LoginPage } from "./page/LoginPage";
+export { RegisterPage } from "./page/RegisterPage";

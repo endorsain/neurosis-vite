@@ -1,7 +1,7 @@
 {
   "translation": "Translation",
   "home_test": "Translation test (Home)",
-  "random_test": "Translation test (Random)",
+  "setting_test": "Translation test (Setting)",
   "access_test": "Translation test (Access)",
   "access": {
     "routes_button": {

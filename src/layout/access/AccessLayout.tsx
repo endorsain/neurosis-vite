@@ -1,0 +1,60 @@
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import styles from "./auth-layout.module.css";
+import { useEffect, useState } from "react";
+import { PATHS } from "../../shared";
+import {
+  AccessAction,
+  useGoogleAuthRedux,
+  useAppDispatch,
+  useAppSelector,
+} from "../../redux";
+import { GoogleRegisterView, RoutesButton } from "./component";
+import { LoadingRequest, TraductionTestAccess } from "../../shared";
+
+export function AccessLayout() {
+  useGoogleAuthRedux();
+  const pathname = useLocation().pathname;
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const { google_loaded, google_credential, loading_request, error } =
+    useAppSelector((s: any) => s.access);
+
+  const [changeView, setChangeView] = useState("pages");
+
+  useEffect(() => {
+    console.log("madrid");
+    if (google_credential && error) {
+      console.log("error:", error);
+      console.log("google_credential: ", google_credential);
+      setChangeView("google");
+      // navigate(PATHS.access.google);
+    }
+  }, [google_credential, error, navigate, pathname]);
+
+  return (
+    <div className={styles.layout}>
+      <RoutesButton
+        currentPath={pathname}
+        accessPaths={PATHS.access}
+        navigate={navigate}
+        dispatch={() => dispatch(AccessAction.clearGoogleCredential())}
+        setChangeView={() => setChangeView("pages")}
+        changeView={changeView}
+      />
+      <div className={styles.page_container}>
+        <Outlet />
+        <div
+          id="google-auth-button"
+          className={styles.google_button}
+          style={{
+            opacity: google_loaded ? 1 : 0.5,
+          }}
+        />
+        <GoogleRegisterView changeView={changeView} />
+      </div>
+      <LoadingRequest loadinRequest={loading_request} />
+      <TraductionTestAccess />
+    </div>
+  );
+}
