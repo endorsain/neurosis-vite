@@ -11,16 +11,31 @@
       const savedTheme = localStorage.getItem("theme") || "light";
       document.documentElement.setAttribute("data-theme", savedTheme);
 
-      // Función para cambiar tema desde esta pestaña
-      function setTheme(theme) {
-        localStorage.setItem("theme", theme);
-        document.documentElement.setAttribute("data-theme", theme);
-      }
-
       // Escuchar cambios de otras pestañas
       window.addEventListener("storage", (e) => {
         if (e.key === "theme" && e.newValue) {
           document.documentElement.setAttribute("data-theme", e.newValue);
+        }
+      });
+    </script>
+    <!-- LANGUAGE -->
+    <script>
+      // Escuchar cambios de idioma (i18nextLng) en otras pestañas
+      console.log("AJAJAJAJ");
+      window.addEventListener("storage", (e) => {
+        console.log("hola: ", e.key);
+        console.log("que", e.newValue);
+        if (e.key === "i18nextLng" && e.newValue) {
+          // Actualiza el idioma de i18next sin recargar la página
+          // if (
+          //   window.i18next &&
+          //   typeof window.i18next.changeLanguage === "function"
+          // ) {
+          //   console.log("holaaaasdasdasdasd");
+          //   window.i18next.changeLanguage(e.newValue);
+          // }
+          console.log("holaaaaa");
+          window.i18next.changeLanguage(e.newValue);
         }
       });
     </script>

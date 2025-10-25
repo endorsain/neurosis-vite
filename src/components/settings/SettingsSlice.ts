@@ -18,6 +18,7 @@ const SettingsSlice = createSlice({
     setLanguage(state, action) {
       state.language = action.payload;
       i18n.changeLanguage(action.payload);
+      localStorage.setItem("i18nextLng", action.payload);
     },
     setTheme(state, action) {
       state.theme = action.payload;

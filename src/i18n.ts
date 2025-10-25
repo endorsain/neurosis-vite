@@ -19,4 +19,6 @@ i18n
     },
   });
 
+//TODO: solucion de tipado rapido. (window.i18next = i18n)
+(window as any).i18next = i18n;
 export default i18n;
