@@ -1,21 +1,21 @@
 import { PATHS } from "../../shared";
 
 export const authMiddleware = (store: any) => (next: any) => (action: any) => {
-  console.log("Inicio de authMiddleware");
+  console.log("authMiddleware INIT");
 
-  console.log("action rejected? ", action.type.endsWith("rejected"));
-  console.log("action.status: ", action.payload?.status);
+  // console.log("action rejected? ", action.type.endsWith("rejected"));
+  // console.log("action.status: ", action.payload?.status);
 
   const result = next(action);
   if (action.type.endsWith("rejected") && action.payload.status === 401) {
     console.log(action.payload.status);
 
-    console.log("te vas negri!");
+    console.log("authMiddleware ERROR");
     window.location.href = PATHS.access.login;
   }
 
-  console.log("authMidd ACTION : ", action);
+  // console.log("authMidd ACTION : ", action);
 
-  console.log("Fin de authMiddleware");
+  console.log("authMiddleware END");
   return result;
 };

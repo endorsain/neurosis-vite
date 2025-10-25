@@ -9,6 +9,8 @@
 @import "./_global.css";
 
 /* tablet */
+
+/* TODO: Aca puedo agarrar las variables globales y ponerlos */
 @media (min-width: 768px) {
 }
 /* labtop */

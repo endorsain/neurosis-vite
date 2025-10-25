@@ -1,0 +1,21 @@
+{
+  "translation": "Traducción",
+  "home_test": "Prueba de traducción (Inicio)",
+  "random_test": "Prueba de traducción (Aleatorio)",
+  "access_test": "Prueba de traducción (Acceso)",
+  "access": {
+    "routes_button": {
+      "register": "Registrarse",
+      "login": "Iniciar sesión",
+      "return": "Volver"
+    },
+    "form": {
+      "email": "Email",
+      "username": "Nombre de usuario",
+      "username_or_email": "Ingresar nombre de usuario o email",
+      "password": "Contraseña",
+      "confirm_password": "Confirmar contraseña",
+      "button": "Enviar"
+    }
+  }
+}

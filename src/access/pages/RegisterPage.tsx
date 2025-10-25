@@ -20,14 +20,11 @@ export function RegisterPage() {
   };
 
   return (
-    <>
-      {/* <Link to="/login">Ir a Login</Link> */}
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <input type="test" placeholder="Email" {...register("email")} />
-        <input type="text" placeholder="Username" {...register("username")} />
-        <input type="text" placeholder="Password" {...register("password")} />
-        <button type="submit">Enviar</button>
-      </form>
-    </>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <input type="test" placeholder="Email" {...register("email")} />
+      <input type="text" placeholder="Username" {...register("username")} />
+      <input type="text" placeholder="Password" {...register("password")} />
+      <button type="submit">Enviar</button>
+    </form>
   );
 }

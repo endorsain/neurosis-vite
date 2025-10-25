@@ -1,0 +1,21 @@
+{
+  "translation": "Translation",
+  "home_test": "Translation test (Home)",
+  "random_test": "Translation test (Random)",
+  "access_test": "Translation test (Access)",
+  "access": {
+    "routes_button": {
+      "register": "Register",
+      "login": "Log in",
+      "return": "Return"
+    },
+    "form": {
+      "email": "Email",
+      "username": "Username",
+      "username_or_email": "Enter username or email",
+      "password": "Password",
+      "confirm_password": "Confirm password",
+      "button": "Send"
+    }
+  }
+}

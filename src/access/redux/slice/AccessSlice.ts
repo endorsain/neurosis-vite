@@ -1,24 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { AccessThunks } from "../";
-// import { loginWithGoogle_handlers } from "./handlers";
-// import { AccessThunks } from "../thunks";
 import { thunkHandlers } from "./handlers";
+import { PATHS } from "../../../shared";
 
+// Ademas del ui tambien tiene que agrupar los "paths"
 const initialState = {
   google_loaded: false,
   google_credential: null,
   // LOADING_REQUEST es buena para todas las request del slice
-  loading_request: false,
-  error: null,
+  loading_request: false, // Se repite en UI
+  request_error: null,
   //UI
+  UI: {
+    views: {
+      paths: PATHS.access,
+      google_register: false,
+    },
+    loading_request: false,
+  },
 };
-
-// Aqui se puede conglomerar
-// accessWithgoogle.fulfilled, accessWithgoogle.rejected, etc...
-
-// const thunkHandlers = {
-//   [AccessThunks.loginWithGoogle.typePrefix]: loginWithGoogle_handlers,
-// };
 
 const AccessSlice = createSlice({
   name: "access_slice",

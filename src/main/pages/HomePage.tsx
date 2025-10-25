@@ -1,5 +1,7 @@
 // import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { TraductionTestHome } from "../components/TraductionTests";
+import { Settings } from "../../components/settings/Settings";
 
 export function HomePage() {
   const { isAuthenticated, loading } = useSelector((s: any) => s.auth);
@@ -20,6 +22,8 @@ export function HomePage() {
           <p key={i}>{isAuthenticated! ? v : "undefined"}</p>
         ))}
       </section>
+      <TraductionTestHome />
+      <Settings />
     </div>
   );
 }
