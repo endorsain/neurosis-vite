@@ -1,0 +1,52 @@
+.base {
+  background: var(--hdr-bg);
+  color: var(--hdr-txt-color);
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  position: relative;
+
+  & span {
+    position: absolute;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+  }
+}
+
+.base.loading {
+  background: var(--hdr-bg-ldg);
+  background-size: 1000% 150%;
+
+  animation: loading_animation 3s infinite;
+  background-position: center;
+}
+
+@keyframes loading_animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(
+      100%
+    ); /* Empieza fuera del contenedor, a la derecha */
+  }
+  to {
+    transform: translateX(
+      -100%
+    ); /* Termina fuera del contenedor, a la izquierda */
+  }
+}

@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "MuseoModerno", sans-serif;
+  font-family: var(--font-family);
 
   display: flex;
   justify-content: center;
@@ -14,17 +14,47 @@ body {
 
   overflow: hidden;
 
-  background: var(--light-brown);
-  box-shadow: 0 0 50px 35px var(--dark-brown) inset;
+  background: var(--bg-color);
+  /* box-shadow: var(--bg-shadow); */
+  /* background-image: var(--bg-image); */
+  /* background-size: var(--bg-image-size); */
 
-  background-image: radial-gradient(#5a503b 1px, transparent 1px);
-  background-size: 25px 25px;
+  /* line-height saca los espacios de arriba y de abajo de los textos */
+  line-height: 1;
+  color: var(--text-color);
+
+  & h1 {
+    /* background: red; */
+    margin: 0px;
+  }
 }
 
+/* TODO: averiguar que hace esto */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+.page_layout {
+  /* background: var(--bg-color);
+  box-shadow: var(--bg-shadow);
+  background-image: var(--bg-image);
+  background-size: var(--bg-image-size); */
+  background: var(--pl-bg);
+  box-shadow: var(--pl-bx-shw);
+  background-image: var(--pl-bg-img);
+  background-size: var(--pl-bg-sz);
+  border-radius: var(--pl-br-r);
+
+  /* border-radius: 40px 40px 0px 0px; */
+
+  padding: 20px;
+  overflow: hidden;
+}
+
+button {
+  border: none;
 }
 
 /* SVG ICON */

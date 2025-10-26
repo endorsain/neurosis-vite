@@ -1,16 +1,32 @@
-.main_layout {
-  /* background: green; */
+.base {
+  background: var(--black);
   overflow: hidden;
   display: grid;
-  grid-template-columns: 100px auto;
-  grid-template-rows: auto;
+  grid-template-columns: 160px auto 130px;
+  grid-template-rows: 20px auto;
+  /* TODO: probar si se puede guardar esto en una variable */
+  grid-template-areas:
+    "c1 c1 c1"
+    "c2 c3 c4";
 
   height: 100vh;
   width: 100vw;
-}
-.menu_layout {
-  background: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+  & > *:nth-child(1) {
+    grid-area: c1;
+    /* overflow: hidden; */
+    border-bottom: var(--border);
+  }
+  & > *:nth-child(2) {
+    grid-area: c2;
+    border-right: var(--border);
+  }
+  & > *:nth-child(3) {
+    grid-area: c3;
+  }
+  & > *:nth-child(4) {
+    grid-area: c4;
+    background: yellowgreen;
+    border-left: var(--border);
+  }
 }

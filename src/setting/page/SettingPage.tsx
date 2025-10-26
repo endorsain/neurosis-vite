@@ -3,18 +3,21 @@ import { useAppDispatch, useAppSelector, SettingAction } from "../../redux";
 import { TraductionTestSetting } from "../../shared";
 import styles from "./setting.module.css";
 
+/* TODO: TEST PARA CARGA EN EL HEADER */
+import { setTest } from "../../redux/setting/slice/setting_slice";
+
 export function SettingPage() {
   const dispatch = useAppDispatch();
 
   return (
-    <div className={styles.settings}>
+    <div className={`page_layout ${styles.settings}`}>
       <h1>Settings</h1>
       <span>cambiar idioma</span>
       <LanguageButton dispatch={dispatch} />
       <span>cambiar tema</span>
       <ThemesButton dispatch={dispatch} />
-      <CuadradosAuxilires />
       <TraductionTestSetting />
+      <button onClick={() => dispatch(setTest())}>jejeje</button>
     </div>
   );
 }
@@ -50,27 +53,17 @@ function ThemesButton({ dispatch }: any) {
   return (
     <>
       <button
-        onClick={() => dispatch(SettingAction.setTheme("light"))}
-        disabled={theme === "light"}
+        onClick={() => dispatch(SettingAction.setTheme("carton"))}
+        disabled={theme === "carton"}
       >
-        Light
+        Carton
       </button>
       <button
-        onClick={() => dispatch(SettingAction.setTheme("dark"))}
-        disabled={theme === "dark"}
+        onClick={() => dispatch(SettingAction.setTheme("martix"))}
+        disabled={theme === "martix"}
       >
-        Dark
-      </button>
-      <button
-        onClick={() => dispatch(SettingAction.setTheme("pink"))}
-        disabled={theme === "pink"}
-      >
-        Pink
+        Martix
       </button>
     </>
   );
-}
-
-function CuadradosAuxilires() {
-  return <div className={styles.cuadrado}>HOLA</div>;
 }

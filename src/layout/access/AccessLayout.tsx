@@ -33,28 +33,30 @@ export function AccessLayout() {
   }, [google_credential, error, navigate, pathname]);
 
   return (
-    <div className={styles.layout}>
-      <RoutesButton
-        currentPath={pathname}
-        accessPaths={PATHS.access}
-        navigate={navigate}
-        dispatch={() => dispatch(AccessAction.clearGoogleCredential())}
-        setChangeView={() => setChangeView("pages")}
-        changeView={changeView}
-      />
-      <div className={styles.page_container}>
-        <Outlet />
-        <div
-          id="google-auth-button"
-          className={styles.google_button}
-          style={{
-            opacity: google_loaded ? 1 : 0.5,
-          }}
+    <div className={styles.access_layout}>
+      <div className={styles.access_container}>
+        <RoutesButton
+          currentPath={pathname}
+          accessPaths={PATHS.access}
+          navigate={navigate}
+          dispatch={() => dispatch(AccessAction.clearGoogleCredential())}
+          setChangeView={() => setChangeView("pages")}
+          changeView={changeView}
         />
-        <GoogleRegisterView changeView={changeView} />
+        <div className={styles.page_container}>
+          <Outlet />
+          <div
+            id="google-auth-button"
+            className={styles.google_button}
+            style={{
+              opacity: google_loaded ? 1 : 0.5,
+            }}
+          />
+          <GoogleRegisterView changeView={changeView} />
+        </div>
+        <LoadingRequest loadinRequest={loading_request} />
+        <TraductionTestAccess />
       </div>
-      <LoadingRequest loadinRequest={loading_request} />
-      <TraductionTestAccess />
     </div>
   );
 }

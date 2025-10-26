@@ -12,11 +12,12 @@ function App() {
       <Routes>
         {/* Main */}
         <Route
-          element={
+          /* element={
             <AuthProvider>
               <MainLayout />
             </AuthProvider>
-          }
+          } */
+          element={<MainLayout />}
         >
           <Route element={<HomePage />} path={PATHS.main.home} />
           <Route element={<SettingPage />} path={PATHS.main.setting} />

@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "MuseoModerno";
+  src: url("../assets/font/MuseoModerno/MuseoModerno-Regular.ttf")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MuseoModero";
+  src: url("../assets/font/MuseoModerno/MuseoModerno-Bold.ttf") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RobotoMono";
+  src: url("../assets/font/RobotoMono/RobotoMono-Regular.ttf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RobotoMono";
+  src: url("../assets/font/RobotoMono/RobotoMono-Bold.ttf") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

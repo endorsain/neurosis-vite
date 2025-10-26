@@ -4,7 +4,10 @@ import i18n from "../../../i18n";
 const initialState = {
   // language: i18n.language || "en",
   language: localStorage.getItem("i18nextLng") || "en",
-  theme: localStorage.getItem("theme") || "light",
+  theme: localStorage.getItem("theme") || "carton",
+  test: {
+    load_req: false,
+  },
 };
 // Los temas van a ser:
 // Carton: El normal, rojo, negro, tonos naranjas y carton.
@@ -25,8 +28,11 @@ const SettingSlice = createSlice({
       localStorage.setItem("theme", action.payload);
       document.documentElement.setAttribute("data-theme", action.payload);
     },
+    setTest(state) {
+      state.test.load_req = !state.test.load_req;
+    },
   },
 });
 
-export const { setLanguage, setTheme } = SettingSlice.actions;
+export const { setLanguage, setTheme, setTest } = SettingSlice.actions;
 export const SettingReducer = SettingSlice.reducer;

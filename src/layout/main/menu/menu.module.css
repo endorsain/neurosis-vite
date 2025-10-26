@@ -1,0 +1,60 @@
+.base {
+  background: var(--mnu-bg);
+  display: grid;
+  grid-template-rows: 60px 100px auto;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+  & > *:not(:last-child) {
+    border-bottom: var(--border);
+  }
+}
+
+.uno {
+  background: var(--mnu-bg-ttl);
+  display: flex;
+
+  flex-direction: row-reverse;
+  align-items: end;
+
+  padding-right: 3px;
+  padding-bottom: 2px;
+
+  & > span {
+    /* font-family: var(--font-MuseoModerno); */
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.dos {
+  background: var(--mnu-bg-nav);
+  display: flex;
+  flex-direction: column;
+
+  & button {
+    height: 100%;
+    background: var(--mnu-bg-btn-nav);
+    color: var(--mnu-txt-btn-nav);
+
+    display: flex;
+    /* flex-direction: row-reverse; */
+    flex-direction: initial;
+    align-items: center;
+
+    &:hover {
+      background: var(--mnu-bg-btn-nav-hv);
+      color: var(--mnu-txt-btn-nav-hv);
+    }
+  }
+}
+
+.tres {
+  background: var(--mnu-bg-rmd);
+}

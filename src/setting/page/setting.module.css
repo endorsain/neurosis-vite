@@ -9,7 +9,7 @@
   --aux-br: 1px solid border;
 }
 
-[data-theme="light"] {
+/* [data-theme="light"] {
   --bg: var(--wht);
   --text: var(--blk);
   --border-1: 1px solid var(--blk);
@@ -28,12 +28,12 @@
   --text: var(--blk);
   --border-1: 4px solid var(--blk);
   --border-radius: 20px;
-}
+} */
 
 .settings {
   display: flex;
   flex-direction: column;
-  background: #9a53eb;
+  /* background: #9a53eb; */
 
   & button {
     width: 100px;

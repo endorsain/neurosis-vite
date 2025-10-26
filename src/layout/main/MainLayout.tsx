@@ -1,23 +1,17 @@
-import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import styles from "./main-layout.module.css";
+import { Menu } from "./menu/Menu";
+import { Header } from "./header/Header";
 
 export function MainLayout() {
   console.log("MainLayout");
 
   return (
-    <div className={styles.main_layout}>
+    <div className={styles.base}>
+      <Header />
       <Menu />
       <Outlet />
+      <div className={styles.coco2} />
     </div>
   );
 }
-
-const Menu = () => {
-  return (
-    <div className={styles.menu_layout}>
-      <Link to="/">home page</Link>
-      <Link to="/setting">setting page</Link>
-    </div>
-  );
-};

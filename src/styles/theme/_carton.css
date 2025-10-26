@@ -1,0 +1,45 @@
+[data-theme="carton"] {
+  --border: 1px solid var(--black);
+  /* --border-radius: 8px; */
+  /* --seconds: 0.1s; */
+  /* --font-size: 13px; */
+
+  /* font */
+  --font-family: var(--font-RobotoMono);
+
+  /* menu */
+  --mnu-bg: none;
+  --mnu-bg-ttl: var(--red);
+  --mnu-bg-btns: var(--black);
+  --mnu-bg-rmd: var(--orange);
+
+  --mnu-bg-btn-nav: var(--black);
+  --mnu-txt-btn-nav: var(--white);
+  --mnu-bg-btn-nav-hv: var(--white);
+  --mnu-txt-btn-nav-hv: var(--black);
+
+  /* page_layout */
+  --pl-bg: var(--carton-B);
+  --pl-bx-shw: 0 0 50px 35px var(--carton-A) inset;
+  --pl-bg-img: radial-gradient(var(--carton-C) 1px, transparent 1px);
+  --pl-bg-sz: 25px 25px;
+  --pl-br-r: 40px 40px 0px 0px;
+
+  /* header */
+  --hdr-bg: var(--black);
+  --hdr-bg-ldg: radial-gradient(
+    circle,
+    #000000 25%,
+    var(--red) 50%,
+    #000000 75%
+  );
+  --hdr-txt-color: var(--white);
+
+  /* CACA */
+  --bg-color: var(--carton-B);
+  --bg-shadow: 0 0 50px 35px var(--carton-A) inset;
+  --bg-image: radial-gradient(var(--carton-C) 1px, transparent 1px);
+  --bg-image-size: 25px 25px;
+
+  --text-color: var(--black);
+}

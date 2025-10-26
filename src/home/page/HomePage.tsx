@@ -1,5 +1,6 @@
 import { TraductionTestHome } from "../../shared";
 import { useAppSelector } from "../../redux";
+import styles from "./home-page.module.css";
 
 export function HomePage() {
   const { isAuthenticated, loading } = useAppSelector((s: any) => s.auth);
@@ -8,7 +9,7 @@ export function HomePage() {
   const userInfo = [email, username];
 
   return (
-    <div>
+    <div className={`page_layout ${styles.caca}`}>
       <h1>Home Page</h1>
       <section>
         <h3>Autenticacion</h3>
