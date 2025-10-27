@@ -34,5 +34,12 @@ const SettingSlice = createSlice({
   },
 });
 
-export const { setLanguage, setTheme, setTest } = SettingSlice.actions;
+const { setLanguage, setTheme, setTest } = SettingSlice.actions;
+
+export const SettingAction = {
+  setLanguage,
+  setTheme,
+  setTest,
+};
+
 export const SettingReducer = SettingSlice.reducer;

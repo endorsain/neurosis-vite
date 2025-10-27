@@ -1,5 +1,6 @@
 .base {
   background: var(--mnu-bg);
+  color: var(--txt-color-A);
   display: grid;
   grid-template-rows: 60px 100px auto;
   overflow: hidden;

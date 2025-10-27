@@ -1,7 +1,6 @@
 html,
 body {
   font-family: var(--font-family);
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,18 +12,12 @@ body {
   padding: 0px;
 
   overflow: hidden;
-
-  background: var(--bg-color);
-  /* box-shadow: var(--bg-shadow); */
-  /* background-image: var(--bg-image); */
-  /* background-size: var(--bg-image-size); */
+  background: var(--black);
 
   /* line-height saca los espacios de arriba y de abajo de los textos */
   line-height: 1;
-  color: var(--text-color);
 
   & h1 {
-    /* background: red; */
     margin: 0px;
   }
 }
@@ -37,27 +30,17 @@ body {
 }
 
 .page_layout {
-  /* background: var(--bg-color);
-  box-shadow: var(--bg-shadow);
-  background-image: var(--bg-image);
-  background-size: var(--bg-image-size); */
-  background: var(--pl-bg);
-  box-shadow: var(--pl-bx-shw);
-  background-image: var(--pl-bg-img);
-  background-size: var(--pl-bg-sz);
-  border-radius: var(--pl-br-r);
+  --br-1: var(--border-r-40);
 
-  /* border-radius: 40px 40px 0px 0px; */
+  background: var(--carton-B);
+  box-shadow: var(--bg1-bx-shw);
+  background-image: var(--bg1-bg-img);
+  background-size: var(--bg1-sz);
+  border-radius: var(--br-1) var(--br-1) 0 0;
 
-  padding: 20px;
   overflow: hidden;
 }
 
 button {
   border: none;
 }
-
-/* SVG ICON */
-/* .svg_icon {
-  width: var(--size-icon-27);
-} */

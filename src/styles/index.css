@@ -7,7 +7,6 @@
 */
 @import "./theme/_carton.css";
 @import "./theme/_martix.css";
-@import "./_variable.css";
 @import "./_font.css";
 @import "./_global.css";
 

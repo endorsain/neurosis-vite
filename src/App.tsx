@@ -23,10 +23,11 @@ function App() {
           <Route element={<SettingPage />} path={PATHS.main.setting} />
         </Route>
         {/* Access */}
-        <Route element={<AccessLayout />}>
+        {/* <Route element={<AccessLayout />}>
           <Route element={<LoginPage />} path={PATHS.access.login} />
           <Route element={<RegisterPage />} path={PATHS.access.register} />
-        </Route>
+        </Route> */}
+        <Route element={<AccessLayout />} path={PATHS.access} />
       </Routes>
     </Router>
   );

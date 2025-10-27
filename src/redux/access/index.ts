@@ -1,2 +1,2 @@
 export { AccessThunk } from "./thunk";
-export { AccessAction, AccessReducer } from "./slice";
+export * from "./slice/access_slice";

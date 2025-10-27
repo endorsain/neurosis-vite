@@ -1,50 +1,41 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import styles from "./auth-layout.module.css";
-import { useEffect, useState } from "react";
-import { PATHS } from "../../shared";
+import { useEffect } from "react";
 import {
   AccessAction,
   useGoogleAuthRedux,
   useAppDispatch,
   useAppSelector,
 } from "../../redux";
-import { GoogleRegisterView, RoutesButton } from "./component";
-import { LoadingRequest, TraductionTestAccess } from "../../shared";
+import {
+  GoogleRegisterView,
+  ChangeView,
+  LoginForm,
+  RegisterForm,
+} from "./component";
 
 export function AccessLayout() {
   useGoogleAuthRedux();
-  const pathname = useLocation().pathname;
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const { google_loaded, google_credential, loading_request, error } =
+  const { google_loaded, google_credential, loading_request, error, UI } =
     useAppSelector((s: any) => s.access);
 
-  const [changeView, setChangeView] = useState("pages");
-
   useEffect(() => {
-    console.log("madrid");
-    if (google_credential && error) {
+    console.log("access_layout");
+    if (google_credential && error && UI.view !== "google") {
       console.log("error:", error);
       console.log("google_credential: ", google_credential);
-      setChangeView("google");
+      dispatch(AccessAction.setChangeView("google"));
       // navigate(PATHS.access.google);
     }
-  }, [google_credential, error, navigate, pathname]);
+  }, [google_credential, error, dispatch, UI.view]);
 
   return (
-    <div className={styles.access_layout}>
-      <div className={styles.access_container}>
-        <RoutesButton
-          currentPath={pathname}
-          accessPaths={PATHS.access}
-          navigate={navigate}
-          dispatch={() => dispatch(AccessAction.clearGoogleCredential())}
-          setChangeView={() => setChangeView("pages")}
-          changeView={changeView}
-        />
+    <div className={styles.base}>
+      <div className={styles.access_layout}>
+        <ChangeView view={UI.view} />
         <div className={styles.page_container}>
-          <Outlet />
+          {UI.view === "login" ? <LoginForm /> : <RegisterForm />}
           <div
             id="google-auth-button"
             className={styles.google_button}
@@ -52,10 +43,8 @@ export function AccessLayout() {
               opacity: google_loaded ? 1 : 0.5,
             }}
           />
-          <GoogleRegisterView changeView={changeView} />
+          <GoogleRegisterView view={UI.view} />
         </div>
-        <LoadingRequest loadinRequest={loading_request} />
-        <TraductionTestAccess />
       </div>
     </div>
   );

@@ -1,10 +1,6 @@
 {
-  "translation": "Traducción",
-  "home_test": "Prueba de traducción (Inicio)",
-  "setting": "Prueba de traducción (Configuracion)",
-  "access_test": "Prueba de traducción (Acceso)",
   "access": {
-    "routes_button": {
+    "nav_button": {
       "register": "Registrarse",
       "login": "Iniciar sesión",
       "return": "Volver"
@@ -12,10 +8,19 @@
     "form": {
       "email": "Email",
       "username": "Nombre de usuario",
-      "username_or_email": "Ingresar nombre de usuario o email",
+      "credential": "Ingresar nombre de usuario o email",
       "password": "Contraseña",
       "confirm_password": "Confirmar contraseña",
       "button": "Enviar"
     }
+  },
+  "setting": {
+    "title": "Configuración",
+    "language": {
+      "title": "Idioma",
+      "es": "Español",
+      "en": "Ingles"
+    },
+    "theme": "Tema"
   }
 }

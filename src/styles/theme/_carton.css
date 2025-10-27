@@ -1,11 +1,44 @@
 [data-theme="carton"] {
-  --border: 1px solid var(--black);
-  /* --border-radius: 8px; */
-  /* --seconds: 0.1s; */
-  /* --font-size: 13px; */
+  --red: red;
+  --black: #000000;
+  --white: #ffffff;
+  --orange: #ee8800;
 
+  --carton-a: #b49964;
+  --carton-b: #d1c09f;
+  --carton-c: #5a503b;
+  --carton-y: yellowgreen;
+
+  --font-RobotoMono: "RobotoMono";
+  /* ACA EMPIEZA LA INTERFAZ DE THEME */
+  --color-a: var(--carton-a);
+  --color-b: var(--carton-b);
+  --color-c: var(--carton-c);
+  --color-d: var(--carton-y);
+  --color-e: orange;
+
+  --color-error: var(--red);
+
+  --border: 1px solid var(--black);
+
+  --border-r-40: 40px;
+  --border-r-18: 18px;
+
+  /* background */
+  --bg1-bx-shw: 0 0 50px 35px var(--color-a) inset;
+  --bg1-img: radial-gradient(var(--color-c) 1px, transparent 1px);
+  --bg1-sz: 25px 25px;
+
+  /* ACCESS */
+  --acc-bg: var(--color-e);
+  --acc-bg-img: radial-gradient(var(--color-c) 2px, transparent 1px);
+  --acc-bg-form: var(--color-d);
   /* font */
   --font-family: var(--font-RobotoMono);
+
+  --main-menu-1: red;
+  --main-menu-2: black;
+  --main-menu-3: var(--orange);
 
   /* menu */
   --mnu-bg: none;
@@ -19,11 +52,11 @@
   --mnu-txt-btn-nav-hv: var(--black);
 
   /* page_layout */
-  --pl-bg: var(--carton-B);
-  --pl-bx-shw: 0 0 50px 35px var(--carton-A) inset;
-  --pl-bg-img: radial-gradient(var(--carton-C) 1px, transparent 1px);
-  --pl-bg-sz: 25px 25px;
-  --pl-br-r: 40px 40px 0px 0px;
+  --pl-bg: var(--carton-bg);
+  --pl-bx-shw: var(--carton-bx-shw);
+  --pl-bg-img: var(--carton-bg-img);
+  --pl-bg-sz: var(--carton-bg-sz);
+  --pl-br-r: var(--carton-br-r);
 
   /* header */
   --hdr-bg: var(--black);
@@ -35,11 +68,25 @@
   );
   --hdr-txt-color: var(--white);
 
+  /* contact view */
+  --ctc-bg: var(--carton-Y);
+
   /* CACA */
-  --bg-color: var(--carton-B);
+  /* --bg-color: var(--carton-B);
   --bg-shadow: 0 0 50px 35px var(--carton-A) inset;
   --bg-image: radial-gradient(var(--carton-C) 1px, transparent 1px);
-  --bg-image-size: 25px 25px;
+  --bg-image-size: 25px 25px; */
 
-  --text-color: var(--black);
+  /* Texto */
+  --txt-color-A: var(--black);
+  --txt-color-B: var(--white);
+
+  /* Access */
+  /* Access Layout */
+  --acc-b-bg: var(--carton-bg);
+  --acc-b-bx-shw: var(--carton-bx-shw);
+  --acc-b-bg-img: var(--carton-bg-img);
+  --acc-b-bg-sz: var(--carton-bg-sz);
+  --acc-br-r: 10px;
+  /* Page */
 }

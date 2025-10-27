@@ -1,8 +1,4 @@
 {
-  "translation": "Translation",
-  "home_test": "Translation test (Home)",
-  "setting_test": "Translation test (Setting)",
-  "access_test": "Translation test (Access)",
   "access": {
     "routes_button": {
       "register": "Register",
@@ -17,5 +13,14 @@
       "confirm_password": "Confirm password",
       "button": "Send"
     }
+  },
+  "setting": {
+    "title": "Setting",
+    "language": {
+      "title": "Language",
+      "es": "Spanish",
+      "en": "English"
+    },
+    "theme": "Theme"
   }
 }

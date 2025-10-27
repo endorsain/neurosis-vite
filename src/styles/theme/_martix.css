@@ -10,10 +10,10 @@
   --mnu-bg-nav: none;
   --mnu-bg-rmd: none;
 
-  --mnu-bg-btn-nav: var(--black);
-  --mnu-txt-btn-nav: var(--orange);
-  --mnu-bg-btn-nav-hv: var(--orange);
-  --mnu-txt-btn-nav-hv: var(--black);
+  --mnu-bg-btn-nav: var(--martix-B);
+  --mnu-txt-btn-nav: var(--martix-A);
+  --mnu-bg-btn-nav-hv: var(--martix-A);
+  --mnu-txt-btn-nav-hv: var(--martix-B);
 
   /* page_layout */
   --pl-bg: var(--black);
@@ -23,19 +23,21 @@
   --pl-br-r: 0 0 0 0;
 
   /* header */
-  --hdr-bg: var(--black);
+  --hdr-bg: var(--martix-B);
   --hdr-bg-ldg: radial-gradient(
     circle,
     #000000 25%,
-    var(--orange) 50%,
+    var(--martix-A) 50%,
     #000000 75%
   );
-  --hdr-txt-color: var(--orange);
+  --hdr-txt-color: var(--martix-A);
 
   /* --bg-color: var(--black);
   --bg-shadow: 0;
   --bg-image: none;
   --bg-image-size: 0; */
 
-  --text-color: var(--orange);
+  /* Texto */
+  --txt-color-A: var(--martix-A);
+  --txt-color-B: var(--white);
 }

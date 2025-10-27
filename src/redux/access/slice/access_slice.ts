@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { thunkHandlers } from "./handler";
-import { PATHS } from "../../../shared";
 
 // Ademas del ui tambien tiene que agrupar los "paths"
 const initialState = {
@@ -11,10 +10,7 @@ const initialState = {
   request_error: null,
   //UI
   UI: {
-    views: {
-      paths: PATHS.access,
-      google_register: false,
-    },
+    view: "login",
     loading_request: false,
   },
 };
@@ -32,6 +28,10 @@ const AccessSlice = createSlice({
     clearGoogleCredential: (state) => {
       state.google_credential = null;
     },
+    setChangeView: (state, action) => {
+      console.log("PAYLOAD", action.payload);
+      state.UI.view = action.payload;
+    },
   },
   extraReducers: (builder: any) => {
     Object.entries(thunkHandlers).forEach(([prefix, handler]) => {
@@ -43,7 +43,18 @@ const AccessSlice = createSlice({
   },
 });
 
-export const { setGoogleLoaded, setGoogleCredential, clearGoogleCredential } =
-  AccessSlice.actions;
+const {
+  setGoogleLoaded,
+  setGoogleCredential,
+  clearGoogleCredential,
+  setChangeView,
+} = AccessSlice.actions;
+
+export const AccessAction = {
+  setGoogleLoaded,
+  setGoogleCredential,
+  clearGoogleCredential,
+  setChangeView,
+};
 
 export const AccessReducer = AccessSlice.reducer;

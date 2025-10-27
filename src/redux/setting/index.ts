@@ -1,1 +1,1 @@
-export { SettingAction, SettingReducer } from "./slice";
+export * from "./slice/setting_slice";
