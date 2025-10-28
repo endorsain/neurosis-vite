@@ -1,10 +1,10 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { AuthProvider } from "./provider";
-import { AccessLayout, MainLayout } from "./layout";
+import { MainLayout } from "./layout";
 import { HomePage } from "./home";
 import { SettingPage } from "./setting";
-import { LoginPage, RegisterPage } from "./access";
 import { PATHS } from "./shared";
+import { AccessPage } from "./access";
 
 function App() {
   return (
@@ -23,11 +23,7 @@ function App() {
           <Route element={<SettingPage />} path={PATHS.main.setting} />
         </Route>
         {/* Access */}
-        {/* <Route element={<AccessLayout />}>
-          <Route element={<LoginPage />} path={PATHS.access.login} />
-          <Route element={<RegisterPage />} path={PATHS.access.register} />
-        </Route> */}
-        <Route element={<AccessLayout />} path={PATHS.access} />
+        <Route element={<AccessPage />} path={PATHS.access} />
       </Routes>
     </Router>
   );

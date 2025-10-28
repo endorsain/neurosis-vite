@@ -1,10 +1,10 @@
 import { AccessThunk, useAppDispatch } from "../../../redux";
 import { useForm } from "react-hook-form";
-import styles from "./component.module.css";
-import { ButtonForm, Input } from "./util";
+import styles from "./form.module.css";
+import { ButtonForm, InputForm } from "./util";
 import { useTranslation } from "react-i18next";
 
-export function LoginForm() {
+export function LoginForm({ view }: any) {
   const { t } = useTranslation(undefined, { keyPrefix: "access.form" });
   const dispatch = useAppDispatch();
   const { register, handleSubmit } = useForm();
@@ -16,13 +16,19 @@ export function LoginForm() {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <Input
+    <form
+      className={`${styles.change_view} ${styles.form} ${
+        view === "login" ? styles.view_visible : styles.view_hidden
+      }`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      {/* login */}
+      <InputForm
         type="text"
         placeholder={t("credential")}
         register={register("credential")}
       />
-      <Input
+      <InputForm
         type="password"
         placeholder={t("password")}
         register={register("password")}

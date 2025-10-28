@@ -4,20 +4,9 @@ const ROOT = {
 };
 
 export const PATHS = {
-  // access: {
-  // login: `${ROOT.access}login`,
-  // register: `${ROOT.access}register`,
-  // google: `${ROOT.access}google-register`,
-  // },
-  access: "access",
+  access: ROOT.access,
   main: {
-    home: `${ROOT.main}`,
+    home: `${ROOT.main}/home`,
     setting: `${ROOT.main}setting`,
   },
 };
-/* 
-TODO: Podria ser
-
-access = /
-main = /home, /setting ... TATATAT
-*/

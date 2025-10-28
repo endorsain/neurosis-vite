@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import styles from "./component.module.css";
+import styles from "./form.module.css";
 import { AccessThunk, useAppDispatch } from "../../../redux";
-import { ButtonForm, Input } from "./util";
+import { ButtonForm, InputForm } from "./util";
 import { useTranslation } from "react-i18next";
 
 type RegisterData = {
@@ -10,7 +10,7 @@ type RegisterData = {
   password: string;
 };
 
-export function RegisterForm() {
+export function RegisterForm({ view }: any) {
   const { t } = useTranslation(undefined, { keyPrefix: "access.form" });
   const dispatch = useAppDispatch();
   const { register, handleSubmit } = useForm<RegisterData>();
@@ -22,18 +22,24 @@ export function RegisterForm() {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <Input
+    <form
+      className={`${styles.change_view} ${styles.form} ${
+        view === "register" ? styles.view_visible : styles.view_hidden
+      }`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      register
+      <InputForm
         type="text"
         placeholder={t("email")}
         register={register("email")}
       />
-      <Input
+      <InputForm
         type="text"
         placeholder={t("username")}
         register={register("username")}
       />
-      <Input
+      <InputForm
         type="password"
         placeholder={t("password")}
         register={register("username")}

@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector, AccessThunk } from "../../../redux";
-import styles from "./component.module.css";
+import styles from "./form.module.css";
 import { useTranslation } from "react-i18next";
-import { ButtonForm, Input } from "./util";
+import { ButtonForm, InputForm } from "./util";
 
-export function GoogleRegisterView({ view }: any) {
+export function GoogleRegisterForm() {
   const { t } = useTranslation();
   const { register, handleSubmit } = useForm();
 
@@ -26,20 +26,22 @@ export function GoogleRegisterView({ view }: any) {
   };
 
   return (
-    <div className={`${styles.view} ${view === "google" ? styles.active : ""}`}>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          type={"text"}
-          placeholder={t("access.form.username")}
-          register={register("username")}
-        />
-        <Input
-          type={"password"}
-          placeholder={t("access.form.password")}
-          register={register("password")}
-        />
-        <ButtonForm>{t("access.form.button")}</ButtonForm>
-      </form>
-    </div>
+    <form
+      className={`${styles.change_view} ${styles.form}`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      google
+      <InputForm
+        type={"text"}
+        placeholder={t("access.form.username")}
+        register={register("username")}
+      />
+      <InputForm
+        type={"password"}
+        placeholder={t("access.form.password")}
+        register={register("password")}
+      />
+      <ButtonForm>{t("access.form.button")}</ButtonForm>
+    </form>
   );
 }

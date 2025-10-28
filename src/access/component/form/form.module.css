@@ -1,0 +1,65 @@
+@import "../component.module.css";
+
+.form {
+  /* background: green; */
+
+  & > *:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.button_change_container {
+  background: salmon;
+  width: 100%;
+  height: 40px;
+}
+
+.input_form {
+  /* background: khaki; */
+  /* padding: 10px; */
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  /* height: 45px; */
+
+  overflow: hidden;
+
+  & > input {
+    background: none;
+    height: 25px;
+    border-bottom: var(--border);
+
+    &::placeholder {
+      color: black;
+      /* font-weight: bold; */
+    }
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background: khaki;
+    }
+  }
+
+  & > span {
+    /* background: aqua; */
+    opacity: 0;
+    font-size: 12px;
+    height: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.button_form {
+  background: yellow;
+  border: var(--border);
+  border-radius: 10px;
+  height: 30px;
+  width: 130px;
+
+  &:hover {
+    background: rgb(216, 216, 54);
+  }
+}
