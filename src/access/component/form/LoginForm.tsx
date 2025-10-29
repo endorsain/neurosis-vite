@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import styles from "./form.module.css";
 import { ButtonForm, InputForm } from "./util";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
 export function LoginForm({ view }: any) {
   const { t } = useTranslation(undefined, { keyPrefix: "access.form" });

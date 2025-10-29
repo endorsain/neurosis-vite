@@ -5,6 +5,7 @@ export function ButtonChangeView({ view }: any) {
   const dispatch = useAppDispatch();
   console.log("view: ", view);
 
+  // TODO: Este codigo es el importante.
   // function handler(value: any) {
   //   if (value === "volver") {
   //     dispatch(AccessAction.clearGoogleCredential());
@@ -17,14 +18,6 @@ export function ButtonChangeView({ view }: any) {
   function handler(value: any) {
     dispatch(AccessAction.setChangeView(value));
   }
-
-  // if (view === "login") {
-  //   return <Button changeView={() => handler("register")}>register</Button>;
-  // } else if (view === "register") {
-  //   return <Button changeView={() => handler("login")}>login</Button>;
-  // } else {
-  //   return <Button changeView={() => handler("volver")}>volver</Button>;
-  // }
 
   return (
     <div className={styles.button_change_view_container}>

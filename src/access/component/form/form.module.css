@@ -9,7 +9,7 @@
 }
 
 .button_change_container {
-  background: salmon;
+  /* background: salmon; */
   width: 100%;
   height: 40px;
 }
@@ -44,12 +44,19 @@
 
   & > span {
     /* background: aqua; */
-    opacity: 0;
-    font-size: 12px;
-    height: 10px;
+    padding-top: 2px;
+    opacity: 1;
+    font-size: 11px;
+    height: 15px;
     overflow: hidden;
     white-space: nowrap;
   }
+}
+
+.buttom_form_container {
+  /* background: red; */
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .button_form {

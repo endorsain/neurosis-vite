@@ -1,6 +1,8 @@
 import styles from "./form.module.css";
 
-export function InputForm({ type, placeholder, register }: any) {
+export function InputForm({ type, placeholder, register, zodError }: any) {
+  console.log(zodError);
+
   return (
     <div className={styles.input_form}>
       <input
@@ -9,24 +11,21 @@ export function InputForm({ type, placeholder, register }: any) {
         {...register}
         autoComplete="off"
       />
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa neque aut
-        doloremque deleniti velit harum corrupti, nobis aspernatur expedita
-        voluptates, qui blanditiis laboriosam odit, minima ut excepturi vero
-        quibusdam omnis!
-      </span>
+      <span>{zodError && zodError}</span>
     </div>
   );
 }
 
 export function ButtonForm({ children }: any) {
   return (
-    <button
-      type="submit"
-      //   disabled={loading}
-      className={styles.button_form}
-    >
-      <span>{children}</span>
-    </button>
+    <div className={styles.buttom_form_container}>
+      <button
+        type="submit"
+        //   disabled={loading}
+        className={styles.button_form}
+      >
+        <span>{children}</span>
+      </button>
+    </div>
   );
 }

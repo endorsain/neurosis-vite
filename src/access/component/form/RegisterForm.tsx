@@ -1,25 +1,36 @@
 import { useForm } from "react-hook-form";
 import styles from "./form.module.css";
-import { AccessThunk, useAppDispatch } from "../../../redux";
 import { ButtonForm, InputForm } from "./util";
 import { useTranslation } from "react-i18next";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registerSchema } from "../../../zod/AccessSchema";
+import React from "react";
 
-type RegisterData = {
-  email: string;
-  username: string;
-  password: string;
-};
+// type RegisterData = {
+//   email: string;
+//   username: string;
+//   password: string;
+// };
 
 export function RegisterForm({ view }: any) {
   const { t } = useTranslation(undefined, { keyPrefix: "access.form" });
-  const dispatch = useAppDispatch();
-  const { register, handleSubmit } = useForm<RegisterData>();
+  // const dispatch = useAppDispatch();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<any>({
+    resolver: zodResolver(registerSchema),
+    // mode: "onChange", // o "onChange"
+  });
 
-  const onSubmit = (data: RegisterData) => {
-    console.log("📝 Registro tradicional:", data);
-    const response = dispatch(AccessThunk.registerUser(data));
-    console.log("esto es data de register: ", response);
+  const onSubmit = (data: any) => {
+    console.log("Registro probando zod:", data);
+    // const response = dispatch(AccessThunk.registerUser(data));
+    // console.log("esto es data de register: ", response);
   };
+
+  console.log("RegisterForm renderizado");
 
   return (
     <form
@@ -28,21 +39,29 @@ export function RegisterForm({ view }: any) {
       }`}
       onSubmit={handleSubmit(onSubmit)}
     >
-      register
       <InputForm
         type="text"
         placeholder={t("email")}
         register={register("email")}
+        zodError={errors.email?.message}
       />
       <InputForm
         type="text"
         placeholder={t("username")}
         register={register("username")}
+        zodError={errors.username?.message}
       />
       <InputForm
-        type="password"
+        type="text"
         placeholder={t("password")}
-        register={register("username")}
+        register={register("password")}
+        zodError={errors.password?.message}
+      />
+      <InputForm
+        type="text"
+        placeholder={t("confirm_password")}
+        register={register("confirm_password")}
+        zodError={errors.confirm_password?.message}
       />
       <ButtonForm>{t("button")}</ButtonForm>
     </form>

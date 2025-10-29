@@ -29,8 +29,9 @@ const AccessSlice = createSlice({
       state.google_credential = null;
     },
     setChangeView: (state, action) => {
-      console.log("PAYLOAD", action.payload);
-      state.UI.view = action.payload;
+      if (state.UI.view !== action.payload) {
+        state.UI.view = action.payload;
+      }
     },
   },
   extraReducers: (builder: any) => {

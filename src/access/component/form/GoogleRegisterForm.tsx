@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector, AccessThunk } from "../../../redux";
 import styles from "./form.module.css";
 import { useTranslation } from "react-i18next";
 import { ButtonForm, InputForm } from "./util";
+import React from "react";
 
 export function GoogleRegisterForm() {
   const { t } = useTranslation();

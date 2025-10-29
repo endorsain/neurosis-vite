@@ -132,7 +132,7 @@ function Theme({ theme, dispatch, t }: any) {
         name="theme"
         value="martix"
         checked={theme === "martix"}
-        onChange={() => dispatch(SettingAction.setTheme("martix"))}
+        onChange={() => dispatch(SettingAction.setTheme("carton"))}
       />
       Martix
     </form>

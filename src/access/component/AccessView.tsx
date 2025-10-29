@@ -35,16 +35,13 @@ function LoginAndRegisterView({ view }: any) {
   );
 }
 
-function GoogleButton() {
-  const { google_loaded } = useAppSelector((s) => s.access);
-
+export function GoogleButton() {
+  const google_loaded = useAppSelector((s) => s.access.google_loaded);
   return (
     <div className={styles.google_button}>
       <div
         id="google-auth-button"
-        style={{
-          opacity: google_loaded ? 1 : 0.5,
-        }}
+        style={{ opacity: google_loaded ? 1 : 0.5 }}
       />
     </div>
   );
