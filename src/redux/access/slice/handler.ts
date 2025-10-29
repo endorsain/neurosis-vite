@@ -2,11 +2,11 @@ import { AccessThunk } from "../thunk";
 
 const handler_pending = (state: any) => {
   state.loading_request = true;
-  state.error = null;
+  state.response = null;
 };
 const handler_rejected = (state: any, action: any) => {
   state.loading_request = false;
-  state.error = action.payload;
+  state.response = action.payload;
 };
 
 const commonHandler = {
@@ -14,7 +14,7 @@ const commonHandler = {
   rejected: handler_rejected,
   fulfilled: (state: any) => {
     state.loading_request = false;
-    state.error = null;
+    state.response = null;
   },
 };
 

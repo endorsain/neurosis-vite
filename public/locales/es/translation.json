@@ -1,6 +1,6 @@
 {
   "access": {
-    "nav_button": {
+    "change_view_button": {
       "register": "Registrarse",
       "login": "Iniciar sesión",
       "return": "Volver"
@@ -12,6 +12,26 @@
       "password": "Contraseña",
       "confirm_password": "Confirmar contraseña",
       "button": "Enviar"
+    },
+    "zod": {
+      "username": {
+        "min": "Mínimo 6 caracteres",
+        "max": "Máximo 15 caracteres",
+        "regex": "Solo minúsculas, puntos o guiones bajos"
+      },
+      "password": {
+        "min": "Contraseña muy corta",
+        "max": "Contraseña muy larga",
+        "not_match": "Las contraseñas no coinciden"
+      },
+      "credential": "Email o nombre de usuario invalido",
+      "email": "Email inválido",
+      "required": "Este campo es requerido"
+    },
+    "server_response": {
+      "email": {
+        "username": "Hola"
+      }
     }
   },
   "setting": {

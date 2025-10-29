@@ -55,6 +55,11 @@ function Button({ children, view, viewName, handler }: any) {
   );
 }
 
-export function ServerResponse() {
-  return <div className={styles.server_response}>server response</div>;
+export function ServerResponse({ response }: any) {
+  return (
+    <div className={styles.server_response}>
+      server response
+      {response && response}
+    </div>
+  );
 }

@@ -35,6 +35,7 @@
       /* font-weight: bold; */
     }
     &:focus {
+      background: khaki;
       outline: none;
     }
     &:hover {

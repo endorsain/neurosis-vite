@@ -5,14 +5,12 @@ import { thunkHandlers } from "./handler";
 const initialState = {
   google_loaded: false,
   google_credential: null,
-  // LOADING_REQUEST es buena para todas las request del slice
-  loading_request: false, // Se repite en UI
-  request_error: null,
-  //UI
-  UI: {
+  ui: {
     view: "login",
-    loading_request: false,
+    // loading_request: false,
   },
+  loading_request: false, // Se repite en UI
+  response: null,
 };
 
 const AccessSlice = createSlice({
@@ -25,12 +23,13 @@ const AccessSlice = createSlice({
     setGoogleCredential: (state, action) => {
       state.google_credential = action.payload;
     },
-    clearGoogleCredential: (state) => {
-      state.google_credential = null;
-    },
     setChangeView: (state, action) => {
-      if (state.UI.view !== action.payload) {
-        state.UI.view = action.payload;
+      if (state.ui.view !== action.payload) {
+        if (state.ui.view === "google") {
+          state.google_credential = null;
+        }
+        state.response = null;
+        state.ui.view = action.payload;
       }
     },
   },
@@ -44,17 +43,12 @@ const AccessSlice = createSlice({
   },
 });
 
-const {
-  setGoogleLoaded,
-  setGoogleCredential,
-  clearGoogleCredential,
-  setChangeView,
-} = AccessSlice.actions;
+const { setGoogleLoaded, setGoogleCredential, setChangeView } =
+  AccessSlice.actions;
 
 export const AccessAction = {
   setGoogleLoaded,
   setGoogleCredential,
-  clearGoogleCredential,
   setChangeView,
 };
 

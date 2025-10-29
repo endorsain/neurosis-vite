@@ -3,25 +3,20 @@ import styles from "./form.module.css";
 import { ButtonForm, InputForm } from "./util";
 import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { registerSchema } from "../../../zod/AccessSchema";
-import React from "react";
-
-// type RegisterData = {
-//   email: string;
-//   username: string;
-//   password: string;
-// };
+import { makeRegisterSchema } from "@/zod/access";
+// import { useAppDispatch } from "@/redux";
 
 export function RegisterForm({ view }: any) {
   const { t } = useTranslation(undefined, { keyPrefix: "access.form" });
   // const dispatch = useAppDispatch();
+
+  const schema = makeRegisterSchema();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<any>({
-    resolver: zodResolver(registerSchema),
-    // mode: "onChange", // o "onChange"
+    resolver: zodResolver(schema),
   });
 
   const onSubmit = (data: any) => {

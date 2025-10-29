@@ -1,6 +1,6 @@
 {
   "access": {
-    "routes_button": {
+    "change_view_button": {
       "register": "Register",
       "login": "Log in",
       "return": "Return"
@@ -8,10 +8,25 @@
     "form": {
       "email": "Email",
       "username": "Username",
-      "username_or_email": "Enter username or email",
+      "credential": "Enter username or email",
       "password": "Password",
       "confirm_password": "Confirm password",
       "button": "Send"
+    },
+    "zod": {
+      "username": {
+        "min": "Min 6 characters",
+        "max": "Max 15 characters",
+        "regex": "Only lowercase letters, dots or underscores"
+      },
+      "password": {
+        "min": "Password too short",
+        "max": "Password too long",
+        "not_match": "Passwords do not match"
+      },
+      "credential": "Invalid email or username",
+      "email": "Invalid email",
+      "required": "This field is required"
     }
   },
   "setting": {
