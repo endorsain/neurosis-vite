@@ -6,7 +6,7 @@ const initialState = {
   google_loaded: false,
   google_credential: null,
   ui: {
-    view: "login",
+    view: "register",
     // loading_request: false,
   },
   loading_request: false, // Se repite en UI

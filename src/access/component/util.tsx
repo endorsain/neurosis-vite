@@ -3,7 +3,7 @@ import styles from "./component.module.css";
 
 export function ButtonChangeView({ view }: any) {
   const dispatch = useAppDispatch();
-  console.log("view: ", view);
+  // console.log("view: ", view);
 
   // TODO: Este codigo es el importante.
   // function handler(value: any) {
@@ -56,10 +56,14 @@ function Button({ children, view, viewName, handler }: any) {
 }
 
 export function ServerResponse({ response }: any) {
+  if (response) {
+    console.log("response ", response);
+  }
+
   return (
     <div className={styles.server_response}>
       server response
-      {response && response}
+      {response && response?.statusCode}
     </div>
   );
 }

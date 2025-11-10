@@ -25,9 +25,9 @@
   --border-r-18: 18px;
 
   /* background */
-  --bg1-bx-shw: 0 0 50px 35px var(--color-a) inset;
-  --bg1-img: radial-gradient(var(--color-c) 1px, transparent 1px);
-  --bg1-sz: 25px 25px;
+  --bg1-bx-shw: 0 0 50px 20px var(--color-a) inset;
+  --bg1-bg-img: radial-gradient(var(--color-c) 1.3px, transparent 1px);
+  --bg1-sz: 20px 20px;
 
   /* ACCESS */
   --acc-bg: var(--color-e);

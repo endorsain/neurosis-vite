@@ -6,7 +6,7 @@ const ROOT = {
 export const PATHS = {
   access: ROOT.access,
   main: {
-    home: `${ROOT.main}/home`,
+    home: `${ROOT.main}home`,
     setting: `${ROOT.main}setting`,
   },
 };

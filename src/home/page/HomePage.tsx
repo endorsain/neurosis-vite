@@ -1,28 +1,45 @@
-import { TraductionTestHome } from "../../shared";
-import { useAppSelector } from "../../redux";
-import styles from "./home-page.module.css";
+import {
+  Body,
+  ButtonModal,
+  Modal,
+  PageLayout,
+  View,
+} from "@/layout/page-layout/PageLayout";
+import styles from "./HomePage.module.css";
 
 export function HomePage() {
-  const { isAuthenticated, loading } = useAppSelector((s: any) => s.auth);
-  const { email, username } = useAppSelector((s: any) => s.user);
-
-  const userInfo = [email, username];
-
   return (
-    <div className={`page_layout ${styles.caca}`}>
-      <h1>Home Page</h1>
-      <section>
-        <h3>Autenticacion</h3>
-        <p>authenticated? - {String(isAuthenticated)}</p>
-        <p>loading? - {String(loading)}</p>
-      </section>
-      <section>
-        <h3>Informacion del usuario</h3>
-        {userInfo.map((v, i) => (
-          <p key={i}>{isAuthenticated! ? v : "undefined"}</p>
-        ))}
-      </section>
-      <TraductionTestHome />
-    </div>
+    <PageLayout>
+      <Body>
+        <CronometroView />
+        <EstadisticasView />
+      </Body>
+    </PageLayout>
+  );
+}
+
+function CronometroView() {
+  return (
+    <View viewname="cronometro">
+      <h1>Cronometro view</h1>
+      <ButtonModal modalname="test">modal</ButtonModal>
+      <TestModal modalname="test" />
+    </View>
+  );
+}
+
+function TestModal({ modalname }: any) {
+  return (
+    <Modal modalname={modalname}>
+      <h1>El maldito modal</h1>
+    </Modal>
+  );
+}
+
+function EstadisticasView() {
+  return (
+    <View viewname="estadisticas">
+      <h1>Estadisticas view</h1>
+    </View>
   );
 }

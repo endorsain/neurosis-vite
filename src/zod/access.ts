@@ -28,11 +28,11 @@ export const makeRegisterSchema = () =>
       email: emailField(),
       username: usernameField(),
       password: passwordField(),
-      confirm_password: z.string(),
+      confirmPassword: z.string(),
     })
-    .refine((data) => data.password === data.confirm_password, {
+    .refine((data) => data.password === data.confirmPassword, {
       message: i18n.t("access.zod.password.not_match"),
-      path: ["confirm_password"],
+      path: ["confirmPassword"],
     });
 
 export const makeLoginSchema = () =>
@@ -53,9 +53,9 @@ export const makeGoogleRegisterSchema = () =>
     .object({
       username: usernameField(),
       password: passwordField(),
-      confirm_password: z.string(),
+      confirmPassword: z.string(),
     })
-    .refine((data) => data.password === data.confirm_password, {
+    .refine((data) => data.password === data.confirmPassword, {
       message: i18n.t("access.zod.password.not_match"),
-      path: ["confirm_password"],
+      path: ["confirmPassword"],
     });

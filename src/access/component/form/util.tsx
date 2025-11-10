@@ -1,7 +1,7 @@
 import styles from "./form.module.css";
 
 export function InputForm({ type, placeholder, register, zodError }: any) {
-  console.log(zodError);
+  // console.log(zodError);
 
   return (
     <div className={styles.input_form}>

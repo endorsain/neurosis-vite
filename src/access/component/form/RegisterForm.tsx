@@ -4,11 +4,12 @@ import { ButtonForm, InputForm } from "./util";
 import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { makeRegisterSchema } from "@/zod/access";
-// import { useAppDispatch } from "@/redux";
+import { AccessThunk, useAppDispatch, useAppSelector } from "@/redux";
 
 export function RegisterForm({ view }: any) {
   const { t } = useTranslation(undefined, { keyPrefix: "access.form" });
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
+  // const { response } = useAppSelector((s) => s.access);
 
   const schema = makeRegisterSchema();
   const {
@@ -17,12 +18,21 @@ export function RegisterForm({ view }: any) {
     formState: { errors },
   } = useForm<any>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      email: "mauro.blanco.cuentas@gmail.com",
+      username: "maurogooglee",
+      password: "hola123",
+      confirmPassword: "hola123",
+    },
   });
 
   const onSubmit = (data: any) => {
-    console.log("Registro probando zod:", data);
-    // const response = dispatch(AccessThunk.registerUser(data));
-    // console.log("esto es data de register: ", response);
+    console.log("Registro probando zod(completo):", data);
+    const { confirmPassword, ...withoutConfirm } = data;
+    console.log("Registro probando zod(sin confirm):", withoutConfirm);
+
+    dispatch(AccessThunk.registerUser(data));
+    console.log("despues de dispatch");
   };
 
   console.log("RegisterForm renderizado");
@@ -55,7 +65,7 @@ export function RegisterForm({ view }: any) {
       <InputForm
         type="text"
         placeholder={t("confirm_password")}
-        register={register("confirm_password")}
+        register={register("confirmPassword")}
         zodError={errors.confirm_password?.message}
       />
       <ButtonForm>{t("button")}</ButtonForm>

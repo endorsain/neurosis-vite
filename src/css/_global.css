@@ -29,18 +29,6 @@ body {
   box-sizing: border-box;
 }
 
-.page_layout {
-  --br-1: var(--border-r-40);
-
-  background: var(--carton-B);
-  box-shadow: var(--bg1-bx-shw);
-  background-image: var(--bg1-bg-img);
-  background-size: var(--bg1-sz);
-  border-radius: var(--br-1) var(--br-1) 0 0;
-
-  overflow: hidden;
-}
-
 button {
   border: none;
 }
