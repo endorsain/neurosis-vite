@@ -8,3 +8,15 @@
 
   overflow-y: auto;
 }
+
+.testModal1 {
+  background: gray;
+  width: 500px;
+  height: 300px;
+}
+
+.testModal2 {
+  background: greenyellow;
+  width: 800px;
+  height: 300px;
+}

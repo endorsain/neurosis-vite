@@ -1,18 +1,15 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./PageLayout.module.css";
-import { usePageLayoutRedux } from "./usePageLayout";
-import { useLocation } from "react-router-dom";
 import { PageLayoutProvider, usePageLayout } from "./PageLayoutProvider";
 
 export function PageLayout({ children }: any) {
   // const pathname = useLocation().pathname;
   // console.log("PageLayout - pathname: ", pathname);
-
   return (
     <PageLayoutProvider>
-      <div className={styles.pagelayout}>
+      <div className={styles.pageContainer}>
         <Header />
-        {children}
+        <div className={styles.pageBody}>{children}</div>
       </div>
     </PageLayoutProvider>
   );
@@ -22,38 +19,24 @@ export function Header() {
   const { layout, setLayout } = usePageLayout();
 
   const handleSwitch = (view: string) => {
-    setLayout((prev: any) => ({ ...prev, activeView: view }));
+    setLayout((prev: any) => ({ ...prev, activeView: view, modal: null }));
   };
 
   return (
-    <div className={styles.header}>
-      {layout.views.map((v: string) => (
-        <button
-          key={v}
-          onClick={() => handleSwitch(v)}
-          className={layout.activeView === v ? styles.activeButton : ""}
-        >
-          {v}
-        </button>
-      ))}
+    <div className={styles.pageHeader}>
+      {layout.views.length > 1
+        ? layout.views.map((v: string) => (
+            <button
+              key={v}
+              onClick={() => handleSwitch(v)}
+              className={layout.activeView === v ? styles.activeButton : ""}
+            >
+              {v}
+            </button>
+          ))
+        : null}
     </div>
   );
-}
-
-export function Body({ children }: any) {
-  const { layout, setLayout } = usePageLayout();
-
-  const pathname = useLocation().pathname;
-  console.log("Body - pathname: ", pathname);
-
-  useEffect(() => {
-    console.log("Body - useEffect - se ejecuta");
-    setLayout((prev: any) => ({ ...prev, page: pathname }));
-  }, [pathname]);
-
-  console.log("Body - layout", layout);
-
-  return <div className={styles.body}>{children}</div>;
 }
 
 export function View({ children, viewname }: any) {
@@ -74,10 +57,7 @@ export function View({ children, viewname }: any) {
   const isActive = layout.activeView === viewname;
 
   return (
-    <div
-      className={`${styles.view} ${isActive ? styles.active : null}`}
-      // className={styles.view}
-    >
+    <div className={`${styles.pageView} ${isActive ? styles.active : null}`}>
       {children}
     </div>
   );
@@ -95,14 +75,23 @@ export function ButtonModal({ children, modalname }: any) {
 
 export function Modal({ children, modalname }: any) {
   const { layout, setLayout } = usePageLayout();
-  console.log("Modal: ", modalname);
+  console.log("Modal: ", modalname, "layout.modal: ", layout.modal);
   const isActive = layout.modal === modalname;
   return (
-    <div className={`${styles.modal} ${isActive && styles.active}`}>
-      <button onClick={() => setLayout((prev) => ({ ...prev, modal: null }))}>
-        Sacar
-      </button>
-      {children}
+    <div
+      className={`${styles.modalContainer} ${isActive && styles.active}`}
+      onClick={() => setLayout((prev: any) => ({ ...prev, modal: null }))}
+    >
+      <div className={styles.modalGrid}>
+        <div className={styles.modalHeader}>
+          <button
+            onClick={() => setLayout((prev: any) => ({ ...prev, modal: null }))}
+          >
+            Salir
+          </button>
+        </div>
+        {children}
+      </div>
     </div>
   );
 }
