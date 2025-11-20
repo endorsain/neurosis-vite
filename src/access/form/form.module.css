@@ -1,0 +1,87 @@
+/* @import "../component.module.css"; */
+
+.form {
+  /* background: green; */
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  /* padding: 10px; */
+
+  & > *:not(:last-child) {
+    /* margin-bottom: 10px; */
+  }
+
+  & > div {
+    /* background: red; */
+  }
+}
+
+.button_change_container {
+  /* background: salmon; */
+  width: 100%;
+  height: 40px;
+}
+
+.input_form {
+  /* background: chocolate; */
+  /* padding: 10px; */
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin-bottom: 7px;
+
+  overflow: hidden;
+
+  & > input {
+    background: none;
+    height: 25px;
+    border-bottom: var(--border);
+
+    &::placeholder {
+      color: black;
+      opacity: 0.8;
+    }
+    &:focus {
+      background: khaki;
+      outline: none;
+    }
+    &:hover {
+      background: khaki;
+    }
+  }
+
+  & > span {
+    /* background: aqua; */
+    font-weight: bold;
+    padding-top: 2px;
+    opacity: 1;
+    font-size: 11px;
+    height: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.buttom_form_container {
+  /* background: red; */
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.button_form {
+  background: yellow;
+  border: var(--border);
+  border-radius: 10px;
+  height: 30px;
+  width: 130px;
+
+  &:hover {
+    background: rgb(216, 216, 54);
+  }
+}

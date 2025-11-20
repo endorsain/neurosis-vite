@@ -1,12 +1,12 @@
 const ROOT = {
-  access: "/",
+  access: "/access",
   main: "/",
 };
 
 export const PATHS = {
-  access: ROOT.access,
+  access: "/access",
   main: {
-    home: `${ROOT.main}home`,
-    setting: `${ROOT.main}setting`,
+    home: "/",
+    setting: "/setting",
   },
 };

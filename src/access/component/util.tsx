@@ -9,7 +9,7 @@ export function ButtonChangeView({ view }: any) {
   // function handler(value: any) {
   //   if (value === "volver") {
   //     dispatch(AccessAction.clearGoogleCredential());
-  //     dispatch(AccessAction.setChangeView("login"));
+  //     dispatch(AccessA ction.setChangeView("login"));
   //   } else {
   //     dispatch(AccessAction.setChangeView(value));
   //   }

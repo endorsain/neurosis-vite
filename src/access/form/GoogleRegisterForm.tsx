@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { ButtonForm, InputForm } from "./util";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { makeGoogleRegisterSchema } from "@/zod";
-import { View } from "../AccessView";
+// import { View } from "../AccessView";
 
 export function GoogleRegisterForm() {
   const { t } = useTranslation();
@@ -37,32 +37,31 @@ export function GoogleRegisterForm() {
   };
 
   return (
-    <View viewname="google">
-      <form
-        className={`${styles.change_view} ${styles.form}`}
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        google
-        <InputForm
-          type={"text"}
-          placeholder={t("access.form.username")}
-          register={register("username")}
-          zodError={errors.username?.message}
-        />
-        <InputForm
-          type={"password"}
-          placeholder={t("access.form.password")}
-          register={register("password")}
-          zodError={errors.password?.message}
-        />
-        <InputForm
-          type={"password"}
-          placeholder={t("access.form.password")}
-          register={register("confirm_password")}
-          zodError={errors.confirm_password?.message}
-        />
-        <ButtonForm>{t("access.form.button")}</ButtonForm>
-      </form>
-    </View>
+    <form
+      className={styles.form}
+      // style={{ padding: "10px" }}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      google
+      <InputForm
+        type={"text"}
+        placeholder={t("access.form.username")}
+        register={register("username")}
+        zodError={errors.username?.message}
+      />
+      <InputForm
+        type={"password"}
+        placeholder={t("access.form.password")}
+        register={register("password")}
+        zodError={errors.password?.message}
+      />
+      <InputForm
+        type={"password"}
+        placeholder={t("access.form.password")}
+        register={register("confirm_password")}
+        zodError={errors.confirm_password?.message}
+      />
+      <ButtonForm>{t("access.form.button")}</ButtonForm>
+    </form>
   );
 }
