@@ -15,7 +15,7 @@ const initialState = {
 // Rosa: rosa :p
 
 const SettingSlice = createSlice({
-  name: "setting_slice",
+  name: "settingSlice",
   initialState,
   reducers: {
     setLanguage(state, action) {

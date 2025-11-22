@@ -1,2 +1,2 @@
 export { UserThunk } from "./thunk";
-export * from "./slice/user_slice";
+export * from "./slice/userSlice";

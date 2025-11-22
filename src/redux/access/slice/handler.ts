@@ -1,19 +1,20 @@
 import { AccessThunk } from "../thunk";
 
-const handler_pending = (state: any) => {
-  state.loading_request = true;
+const handlerPending = (state: any) => {
+  state.loadingRequest = true;
   state.response = null;
 };
-const handler_rejected = (state: any, action: any) => {
-  state.loading_request = false;
+const handlerRejected = (state: any, action: any) => {
+  console.log("handlerRejected:", action.payload);
+  state.loadingRequest = false;
   state.response = action.payload;
 };
 
 const commonHandler = {
-  pending: handler_pending,
-  rejected: handler_rejected,
+  pending: handlerPending,
+  rejected: handlerRejected,
   fulfilled: (state: any) => {
-    state.loading_request = false;
+    state.loadingRequest = false;
     state.response = null;
   },
 };

@@ -1,4 +1,4 @@
-import { getGeneralUserData } from "./user_thunk";
+import { getGeneralUserData } from "./userThunk";
 
 export const UserThunk = {
   getGeneralUserData,

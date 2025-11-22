@@ -5,10 +5,11 @@ import { ButtonForm, InputForm } from "./util";
 import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { makeLoginSchema } from "@/zod";
+import { AccessThunk, useAppDispatch } from "@/redux";
 
 export function LoginForm({ view }: any) {
   const { t } = useTranslation(undefined, { keyPrefix: "access.form" });
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const schema = makeLoginSchema();
   const {
@@ -17,11 +18,17 @@ export function LoginForm({ view }: any) {
     formState: { errors },
   } = useForm({
     resolver: zodResolver(schema),
+    defaultValues: {
+      // credential: "mauro.blanco.cuentas@gmail.com",
+      credential: "maurogooglee",
+      password: "hola123",
+      // confirmPassword: "hola123",
+    },
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     console.log("📝 Inicio de sesion tradicional:", data);
-    // const response = dispatch(AccessThunk.loginUser(data));
+    await dispatch(AccessThunk.loginUser(data));
     // console.log("esto es data de login: ", response);
   };
 
@@ -35,7 +42,7 @@ export function LoginForm({ view }: any) {
         zodError={errors.credential?.message}
       />
       <InputForm
-        type="password"
+        type="text"
         placeholder={t("password")}
         register={register("password")}
         zodError={errors.password?.message}

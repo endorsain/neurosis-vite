@@ -29,9 +29,12 @@
       "required": "Este campo es requerido"
     },
     "server_response": {
-      "email": {
-        "username": "Hola"
-      }
+      "EmailAlreadyExistsError": "El correo electrónico ya se encuentra registrado.",
+      "EmailOrUsernameAlreadyExistsError": "El correo electrónico o nombre de usuario ya están registrados.",
+      "UserNotFoundError": "El usuario no existe.",
+      "InvalidPasswordError": "Contraseña incorrecta.",
+      "UsernameAlreadyExistsError": "El nombre de usuario ya existe.",
+      "UnexpectedError": "Ha ocurrido un error inesperado. Inténtalo de nuevo."
     }
   },
   "setting": {

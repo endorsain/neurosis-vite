@@ -1,10 +1,8 @@
 import styles from "./form.module.css";
 
 export function InputForm({ type, placeholder, register, zodError }: any) {
-  // console.log(zodError);
-
   return (
-    <div className={styles.input_form}>
+    <div className={styles.inputForm}>
       <input
         type={type}
         placeholder={placeholder}
@@ -18,11 +16,10 @@ export function InputForm({ type, placeholder, register, zodError }: any) {
 
 export function ButtonForm({ children }: any) {
   return (
-    <div className={styles.buttom_form_container}>
+    <div className={styles.buttonForm}>
       <button
         type="submit"
         //   disabled={loading}
-        className={styles.button_form}
       >
         <span>{children}</span>
       </button>

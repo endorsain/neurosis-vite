@@ -1,73 +1,48 @@
-.access_view {
+@import "../view/view.module.css";
+
+.header {
+  /* background: forestgreen; */
   position: relative;
   overflow: hidden;
 
   width: 100%;
   height: 100%;
 }
-
-.login_register {
-  /* background: rebeccapurple; */
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-  height: 100%;
-
-  & > *:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-
-.form_container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-  height: 100%;
-}
-
-.button_change_view_container {
-  /* background: salmon; */
-
-  position: relative;
-
-  width: 100%;
-  height: 40px;
-}
-
-.server_response {
-  /* background: moccasin; */
-  height: 50px;
-}
-
-.button_change_view {
-  background: orange;
-  border: var(--border);
-  border-radius: 10px;
-  width: 130px;
-
-  &:hover {
-    background: #e7a62c;
-  }
-}
-
-.view {
+.headerButton {
   position: absolute;
 
-  width: 100%;
+  width: 120px;
   height: 100%;
+
+  border-right: var(--access-bdr);
 
   transition: opacity 0.3s ease;
 }
 
-.visible {
-  opacity: 1;
-  pointer-events: auto;
+/* Body */
+.body {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+.bodyView {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 10px;
 }
 
-.hidden {
-  opacity: 0;
-  pointer-events: none;
+/* LogOrRegView */
+.logOrRegView > div:first-child {
+  position: relative;
+  height: 100%;
+}
+
+.serverResponse {
+  padding: 4px 10px;
+  font-size: 13px;
 }

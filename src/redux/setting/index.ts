@@ -1,1 +1,1 @@
-export * from "./slice/setting_slice";
+export * from "./slice/settingSlice";

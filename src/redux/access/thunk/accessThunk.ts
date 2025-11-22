@@ -56,7 +56,7 @@ export const registerWithGoogle = createAsyncThunk(
       return response.data;
     } catch (err: any) {
       console.log("THUNK error: ", err);
-      return rejectWithValue(err.response?.data || err.message);
+      return rejectWithValue(err.response?.data);
     }
   }
 );

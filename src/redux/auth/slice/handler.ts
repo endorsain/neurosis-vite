@@ -1,18 +1,18 @@
 import { UserThunk } from "../../user";
 
-const handler_pending = (state: any) => {
+const hanlerPending = (state: any) => {
   state.loading = true;
   state.error = null;
 };
-const handler_rejected = (state: any, action: any) => {
+const handlerRejected = (state: any, action: any) => {
   state.isAuthenticated = false;
   state.loading = false;
   state.error = action.payload;
 };
 
 const commonHandler = {
-  pending: handler_pending,
-  rejected: handler_rejected,
+  pending: hanlerPending,
+  rejected: handlerRejected,
   fulfilled: (state: any) => {
     state.isAuthenticated = true;
     state.loading = false;

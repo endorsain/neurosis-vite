@@ -27,6 +27,14 @@
       "credential": "Invalid email or username",
       "email": "Invalid email",
       "required": "This field is required"
+    },
+    "server_response": {
+      "EmailAlreadyExistsError": "The email address is already registered.",
+      "EmailOrUsernameAlreadyExistsError": "Email or username is already taken.",
+      "UserNotFoundError": "User not found.",
+      "InvalidPasswordError": "Incorrect password.",
+      "UnexpectedError": "An unexpected error occurred. Please try again.",
+      "UsernameAlreadyExistsError": "The username already exists."
     }
   },
   "setting": {

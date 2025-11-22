@@ -1,19 +1,19 @@
 import { UserThunk } from "../thunk";
 
-const handler_pending = (state: any) => {
+const handlerPending = (state: any) => {
   //   state.email = null;
   //   state.username = null;
   state.loading = true;
   state.error = null;
 };
-const handler_rejected = (state: any, action: any) => {
+const handlerRejected = (state: any, action: any) => {
   state.loading = false;
   state.error = action.payload;
 };
 
 const commonHandler = {
-  pending: handler_pending,
-  rejected: handler_rejected,
+  pending: handlerPending,
+  rejected: handlerRejected,
   fulfilled: (state: any, action: any) => {
     state.email = action.payload.email;
     state.username = action.payload.username;

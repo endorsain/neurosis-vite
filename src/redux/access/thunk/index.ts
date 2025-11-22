@@ -3,7 +3,7 @@ import {
   registerUser,
   registerWithGoogle,
   loginWithGoogle,
-} from "./access_thunk";
+} from "./accessThunk";
 
 //TODO: AccessThunk (que no se plural)
 export const AccessThunk = {

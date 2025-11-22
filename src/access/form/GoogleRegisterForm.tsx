@@ -17,6 +17,11 @@ export function GoogleRegisterForm() {
     formState: { errors },
   } = useForm<any>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      username: "maurogooglee",
+      password: "hola123",
+      confirmPassword: "hola123",
+    },
   });
 
   const dispatch = useAppDispatch();
@@ -27,13 +32,12 @@ export function GoogleRegisterForm() {
       ...data,
       google_credential,
     });
-    const response = dispatch(
+    await dispatch(
       AccessThunk.registerWithGoogle({
         ...data,
         googleCredential: google_credential,
       })
     );
-    console.log("esto es data de registro con google: ", response);
   };
 
   return (
@@ -42,7 +46,6 @@ export function GoogleRegisterForm() {
       // style={{ padding: "10px" }}
       onSubmit={handleSubmit(onSubmit)}
     >
-      google
       <InputForm
         type={"text"}
         placeholder={t("access.form.username")}

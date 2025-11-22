@@ -6,17 +6,15 @@ const initialState = {
   google_loaded: false,
   google_credential: null,
   ui: {
-    // view: "register",
-    // headerButtonActive: "login",
     bodyViewActive: "logOrReg",
     formViewActive: "login",
   },
-  loading_request: false, // Se repite en UI
+  loadingRequest: false, // Se repite en UI
   response: null,
 };
 
 const AccessSlice = createSlice({
-  name: "access_slice",
+  name: "accessSlice",
   initialState,
   reducers: {
     setGoogleLoaded: (state, action) => {
@@ -26,20 +24,17 @@ const AccessSlice = createSlice({
       state.google_credential = action.payload;
     },
     setChangeView: (state, action) => {
-      if (action.payload.formView === "google") {
-        state.ui.bodyViewActive = "googleRegister";
-      } else {
-        if (state.ui.bodyViewActive !== "logOrReg") {
-          state.ui.bodyViewActive = "logOrReg";
-          state.google_credential = null;
-        }
+      if (state.ui.bodyViewActive !== "logOrReg") {
+        state.ui.bodyViewActive = "logOrReg";
+        state.google_credential = null;
       }
 
       state.response = null;
       state.ui.formViewActive = action.payload.formView;
     },
-    setChangeForm: (state, action) => {
-      state.ui.formViewActive = action.payload.form;
+    setGoogleView: (state, action) => {
+      state.ui.bodyViewActive = "googleRegister";
+      state.ui.formViewActive = action.payload.formView;
     },
   },
   extraReducers: (builder: any) => {
@@ -52,14 +47,14 @@ const AccessSlice = createSlice({
   },
 });
 
-const { setGoogleLoaded, setGoogleCredential, setChangeView, setChangeForm } =
+const { setGoogleLoaded, setGoogleCredential, setChangeView, setGoogleView } =
   AccessSlice.actions;
 
 export const AccessAction = {
   setGoogleLoaded,
   setGoogleCredential,
   setChangeView,
-  setChangeForm,
+  setGoogleView,
 };
 
 export const AccessReducer = AccessSlice.reducer;

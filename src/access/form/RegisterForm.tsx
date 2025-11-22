@@ -26,13 +26,9 @@ export function RegisterForm() {
     },
   });
 
-  const onSubmit = (data: any) => {
-    console.log("Registro probando zod(completo):", data);
+  const onSubmit = async (data: any) => {
     const { confirmPassword, ...withoutConfirm } = data;
-    console.log("Registro probando zod(sin confirm):", withoutConfirm);
-
-    dispatch(AccessThunk.registerUser(data));
-    console.log("despues de dispatch");
+    await dispatch(AccessThunk.registerUser(data));
   };
 
   console.log("RegisterForm renderizado");

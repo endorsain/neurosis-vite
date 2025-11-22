@@ -1,0 +1,17 @@
+.defaultView {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 0.3s ease;
+}
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

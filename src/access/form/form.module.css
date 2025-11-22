@@ -1,7 +1,4 @@
-/* @import "../component.module.css"; */
-
 .form {
-  /* background: green; */
   display: flex;
   flex-direction: column;
 
@@ -9,27 +6,9 @@
 
   width: 100%;
   height: 100%;
-
-  /* padding: 10px; */
-
-  & > *:not(:last-child) {
-    /* margin-bottom: 10px; */
-  }
-
-  & > div {
-    /* background: red; */
-  }
 }
 
-.button_change_container {
-  /* background: salmon; */
-  width: 100%;
-  height: 40px;
-}
-
-.input_form {
-  /* background: chocolate; */
-  /* padding: 10px; */
+.inputForm {
   display: flex;
   flex-direction: column;
 
@@ -68,20 +47,20 @@
   }
 }
 
-.buttom_form_container {
+.buttonForm {
   /* background: red; */
   display: flex;
   flex-direction: row-reverse;
-}
 
-.button_form {
-  background: yellow;
-  border: var(--border);
-  border-radius: 10px;
-  height: 30px;
-  width: 130px;
+  & > button {
+    background: yellow;
+    border: var(--border);
+    border-radius: 10px;
+    height: 30px;
+    width: 130px;
 
-  &:hover {
-    background: rgb(216, 216, 54);
+    &:hover {
+      background: rgb(216, 216, 54);
+    }
   }
 }

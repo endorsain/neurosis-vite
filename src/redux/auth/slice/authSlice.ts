@@ -2,19 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 import { thunkHandlers } from "./handler";
 
 const initialState = {
-  email: null,
-  username: null,
+  isAuthenticated: false,
   loading: false,
   error: null,
 };
 
-const UserSlice = createSlice({
-  name: "user_slice",
+const AuthSlice = createSlice({
+  name: "authSlice",
   initialState,
   reducers: {
-    setUserData: (state, action) => {
-      state.email = action.payload;
-      state.username = action.payload;
+    setAuthenticated: (state, action) => {
+      state.isAuthenticated = action.payload;
+      if (action.payload === true) {
+        state.error = null;
+      }
     },
   },
   extraReducers: (builder: any) => {
@@ -27,10 +28,8 @@ const UserSlice = createSlice({
   },
 });
 
-const { setUserData } = UserSlice.actions;
-
-export const UserAction = {
-  setUserData,
+const { setAuthenticated } = AuthSlice.actions;
+export const AuthAction = {
+  setAuthenticated,
 };
-
-export const UserReducer = UserSlice.reducer;
+export const AuthReducer = AuthSlice.reducer;
